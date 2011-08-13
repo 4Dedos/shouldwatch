@@ -14,6 +14,20 @@ class Movie < ActiveRecord::Base
     return movie
   end
 
+  def create_recommendation(user)
+    return if user.blank?
+    recommendation = Recommendation.where(:user_id => user.id, :movie_id => self.id).first
+
+    if recommendation.blank?
+      recommendation = Recommendation.new
+      recommendation.user = user
+      recommendation.movie = self
+      recommendation.save!
+    end
+
+    return recommendation
+  end
+
   private
 
   def self.rotten_tomatoes_to_movie(rt_movie)

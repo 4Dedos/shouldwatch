@@ -39,4 +39,46 @@ describe Movie do
       movie.should be nil
     end
   end
+
+  context "#create Recommendation" do
+    before(:each) do
+      @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      @movie = Movie.new(:title => "Fight Club", :year => "1982",
+                         :runtime => "240", :plot => "",
+                         :imdb_id => "1", :poster_thumbnail => "a",
+                         :poster_profile => "b", :poster_original => "c",
+                         :poster_detailed => "d", :directors => "j")
+      @movie.save!
+      @user.save!
+    end
+
+    it "return an existing recommendation" do
+      recommendation = Recommendation.new(:movie => @movie, :user => @user)
+      recommendation.save!
+
+      rec = @movie.create_recommendation(@user)
+      rec.id.should == recommendation.id 
+    end
+
+    it "create and return a recommendation" do
+      Recommendation.count.should == 0
+
+      rec = @movie.create_recommendation(@user)
+
+      rec.should_not be nil
+
+      Recommendation.count.should == 1
+    end
+
+    it "return nil becasue there is no user" do
+      Recommendation.count.should == 0
+
+      rec = @movie.create_recommendation(nil)
+
+      rec.should be nil
+
+      Recommendation.count.should == 0
+    end
+
+  end
 end
