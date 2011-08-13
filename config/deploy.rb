@@ -20,6 +20,6 @@ set :scm, :git
 
 role :web, "65.39.226.129"
 role :app, "65.39.226.129"
-role :db,  "65.39.226.129"
+role :db,  "65.39.226.129", :primary => true
 
 
