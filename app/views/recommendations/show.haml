@@ -1,4 +1,6 @@
-.callbacks{:onClosed => 'callback_on_recommendation_close' }  
-.popup_content
-  %h1 Show Recommendation
-  %p= @recommendation.token
+:javascript
+  function popupClose() {
+    callback_on_recommendation_close();
+  }
+%h1 Show Recommendation
+%p= @recommendation.token

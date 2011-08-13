@@ -20,7 +20,7 @@ MovieSearch = {
 };
 
 // Popups Callbacks functions
-var callback_on_recommendation_close = function() {}
+function callback_on_recommendation_close() {}
 
 //Uniforms
 	$(function(){
@@ -35,7 +35,7 @@ $(document).ready(function(){
   $(".header .menu li").click(function(){
     $(".header .menu li.selected").removeClass('selected');
     $(this).addClass('selected');
-  })
+  });
   
 });
 
