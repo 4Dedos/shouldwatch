@@ -217,9 +217,25 @@ margin-left:120px;
 .userPanel .watched .amount{
 	font-size:40px;
 	color:#990000;
-	line-height:40px;
+	line-height:18px;
 	float:left;
 	margin-right:10px;
+}
+
+.userPanel .recommended_by_me .amount {
+        font-size: 28px;
+        color:#990000;
+        line-height:18px;
+        float: left;
+        margin-right:10px;
+}
+
+.userPanel .recommended_to_me .amount {
+        font-size: 28px;
+        color:#990000;
+        line-height: 18px;
+        float: left;
+        margin-right: 10px;
 }
 
 .userPanel .watched .when{
@@ -227,6 +243,19 @@ margin-left:120px;
 	font-size:16px;
 	padding-top:5px;
 }
+
+.userPanel .recommended_by_me .when {
+        line-height: 12px;
+        font-size: 12px;
+        padding-top: 5px;
+}
+
+.userPanel .recommended_to_me .when {
+        line-height: 12px;
+        font-size: 12px;
+        padding-top: 5px;
+}
+
 .userPanel .watched a{
 	display:block;
 	font-size:10px;

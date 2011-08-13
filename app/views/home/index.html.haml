@@ -24,8 +24,15 @@
         .watched
           %span.amount 37
           %span.when
-            = t('.watched')
-            = link_to t('.this_month'), '#'
+            = t('.want_to_watch')
+        .recommended_by_me
+          %span.amount 10
+          %span.when
+            = t('.i_recommend')
+        .recommended_to_me
+          %span.amount 15
+          %span.when
+            = t('recommended_to_me')
     .search
       = render '/home/search'
 .pageContent
