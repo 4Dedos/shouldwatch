@@ -1,6 +1,4 @@
 Shouldwatch::Application.routes.draw do
-  get "home/index"
-
   match '/auth/:provider/callback', :to => 'sessions#callback'
   match '/signout' => 'sessions#destroy', :as => :signout
 
