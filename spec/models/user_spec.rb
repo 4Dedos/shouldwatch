@@ -147,7 +147,7 @@ describe User do
     it "add a new movie to my watch list" do
       movie = OpenStruct.new(:title => "Fight Club", :year => "1982",
                              :runtime => "240", :synopsis => "",
-                             :alternate_id => OpenStruct.new(:imdb => "1"),
+                             :alternate_ids => OpenStruct.new(:imdb => "1"),
                              :posters => OpenStruct.new(:thumbnail => "a",
                                                        :profile => "b",
                                                        :original => "c",

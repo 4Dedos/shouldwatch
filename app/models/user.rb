@@ -27,9 +27,6 @@ class User < ActiveRecord::Base
     self.authentication_tokens.empty?
   end
 
-  def add_to_watch_list(rt_id)
-  end
-
   def i_should_watch_list
     ret = []
     self.should_watch_movies.each do |swm|
@@ -65,7 +62,7 @@ class User < ActiveRecord::Base
   
 
   def add_to_watch_list(rotten_tomatoes_id)
-    movie = Movie.find_by_rotten_tomatoes_id(rotten_tomatoes_id)
+    movie = Movie.find_or_create_by_rt_id(rotten_tomatoes_id)
     
     return if movie.blank?
 
