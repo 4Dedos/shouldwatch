@@ -137,5 +137,26 @@ describe User do
       user.avatar.should_not be_nil
     end
   end
+
+  context "#Add to Watch List" do
+    before (:each) do
+      @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      @user.save!
+    end
+
+    it "add a new movie to my watch list" do
+      movie = OpenStruct.new(:title => "Fight Club", :year => "1982")
+      RottenMovie.expects(:find).with(:id => "12132").returns(movie)
+
+      @user.add_to_watch_list("12132")
+      movies = @user.i_should_watch_list
+      movies.count.should == 1
+      movies[0].title.should == "Fight Club"
+      movies[0].year.should == "1982"
+    end
+
+    it "add an unexisting Rotten Tomatoes movie to my watch list"
+    it "add an existing movie in DB to my watch list"
+  end
 end
 

@@ -63,5 +63,18 @@ class User < ActiveRecord::Base
     read_attribute(:hits) || 0
   end
   
+
+  def add_to_watch_list(rotten_tomatoes_id)
+
+    rt_movie = RottenMovie.find(:id => rotten_tomatoes_id)
+    movie = Movie.new
+    movie.rotten_tomatoes_id = rotten_tomatoes_id
+    movie.title = rt_movie.title
+    movie.year = rt_movie.year
+    movie.save!
+
+    self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
+    self.save!
+  end
 end
 
