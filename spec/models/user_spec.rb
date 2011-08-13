@@ -169,7 +169,19 @@ describe User do
       @user.i_should_watch_list.count.should == 0
     end
 
-    it "add an existing movie in DB to my watch list"
+    it "add an existing movie in DB to my watch list" do
+      movie = Movie.new(:title => "Fight Club", :year => "1982",
+                        :runtime => "240", :plot => "",
+                        :rotten_tomatoes_id => "12132")
+      movie.save!
+
+      @user.add_to_watch_list("12132")
+      movies = @user.i_should_watch_list
+      movies.count.should == 1
+      movies[0].title.should == "Fight Club"
+      movies[0].year.should == "1982"
+    end
+
   end
 end
 
