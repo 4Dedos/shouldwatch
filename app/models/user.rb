@@ -65,6 +65,7 @@ class User < ActiveRecord::Base
     movie = Movie.find_or_create_by_rt_id(rotten_tomatoes_id)
     
     return if movie.blank?
+    return if self.i_should_watch_list.include?(movie)
 
     self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
     self.save!
