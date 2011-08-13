@@ -71,6 +71,14 @@ class User < ActiveRecord::Base
     movie.rotten_tomatoes_id = rotten_tomatoes_id
     movie.title = rt_movie.title
     movie.year = rt_movie.year
+    movie.runtime = rt_movie.runtime
+    movie.plot = rt_movie.synopsis
+    movie.imdb_id = rt_movie.alternate_id.imdb
+    movie.poster_thumbnail = rt_movie.posters.thumbnail
+    movie.poster_profile = rt_movie.posters.profile
+    movie.poster_original = rt_movie.posters.original
+    movie.poster_detailed = rt_movie.posters.detailed
+    movie.directors = rt_movie.abridged_directors.map(&:name).join(', ')
     movie.save!
 
     self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
