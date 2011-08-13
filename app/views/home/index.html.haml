@@ -61,14 +61,7 @@
           %li= t('.empty_list')
         = render @recommended_to_me
 
-<<<<<<< HEAD
-- if current_user.hits <= 1
-  .first_visit_popup
-
-=======
 
 - if @popup_template
-  #popup
+  #popup{:style => 'display:none;' }
     = render :template => @popup_template
-  
->>>>>>> Recommendation Popup
