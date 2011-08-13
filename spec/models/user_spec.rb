@@ -162,7 +162,13 @@ describe User do
       movies[0].year.should == "1982"
     end
 
-    it "add an unexisting Rotten Tomatoes movie to my watch list"
+    it "add an unexisting Rotten Tomatoes movie to my watch list" do
+      RottenMovie.expects(:find).with(:id => "42").returns([])
+
+      @user.add_to_watch_list("42")
+      @user.i_should_watch_list.count.should == 0
+    end
+
     it "add an existing movie in DB to my watch list"
   end
 end

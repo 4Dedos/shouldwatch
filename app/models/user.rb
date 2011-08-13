@@ -65,10 +65,20 @@ class User < ActiveRecord::Base
   
 
   def add_to_watch_list(rotten_tomatoes_id)
-
     rt_movie = RottenMovie.find(:id => rotten_tomatoes_id)
+
+    if !rt_movie.blank?
+      movie = rotten_tomatoes_to_movie(rt_movie)
+      self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
+      self.save!
+    end
+  end
+
+  private
+
+  def rotten_tomatoes_to_movie(rt_movie)
     movie = Movie.new
-    movie.rotten_tomatoes_id = rotten_tomatoes_id
+    movie.rotten_tomatoes_id = rt_movie.id
     movie.title = rt_movie.title
     movie.year = rt_movie.year
     movie.runtime = rt_movie.runtime
@@ -81,8 +91,7 @@ class User < ActiveRecord::Base
     movie.directors = rt_movie.abridged_directors.map(&:name).join(', ')
     movie.save!
 
-    self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
-    self.save!
+    return movie
   end
 end
 
