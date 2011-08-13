@@ -1,10 +1,16 @@
 // Colorbox
+
 $(document).ready(function(){
-  if ($('.first_visit_popup').size() > 0) {
-    $.colorbox({href:"/home/first_visit", opacity:'0.55', height: '29%' });
-  }
   
-  if ($('.welcome_guest_popup').size() > 0) {
-    $.colorbox({href:"/home/welcome_guest", opacity:'0.55', height: '33%' });
-  }
+  if ($('#popup').size() > 0) {
+    var content = $('#popup').html();
+    if ($('#popup .popup_content').size() > 0) {
+      var content = $('#popup .popup_content').html();
+    } 
+    
+    var onClosedCallback = eval($('#popup .callbacks').attr('onClosed'));
+
+    $.colorbox({html: content, open:true, opacity:'0.55', height: '33%', onClosed: onClosedCallback });
+  }   
+  
 });

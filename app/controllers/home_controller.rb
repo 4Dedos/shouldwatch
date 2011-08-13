@@ -1,9 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @want_to_watch = current_user.i_should_watch_list
-    @i_recommend = current_user.i_recommend_list
-    @recommended_to_me = current_user.recommended_to_me_list
+    prepare_lists
   end
 
   def first_visit

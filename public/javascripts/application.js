@@ -19,6 +19,8 @@ MovieSearch = {
   }
 };
 
+// Popups Callbacks functions
+var callback_on_recommendation_close = function() {}
 
 //Uniforms
 	$(function(){
@@ -34,5 +36,6 @@ $(document).ready(function(){
     $(".header .menu li.selected").removeClass('selected');
     $(this).addClass('selected');
   })
+  
 });
 

@@ -15,10 +15,10 @@ en:
       sign_in_with_twitter:   'Sign in with Twitter'
       sign_out:               'Sign Out'
       empty_list:             'Empty list'
-    first_visit:
-      popup_title:            'This is your first visit!'
     welcome_guest:
-      popup_title:                'Welcome guest!'
+      popup_title:            'Welcome guest!'
+    first_visit:
+      popup_title:                'This is your first visit!'
       welcome_guest_description:  'ShouldWatch is a productivity tool to help you watch more movies.'
       keep_track:                 'Keep track of the movies that you want to watch.'
       ask_your_friends:           'Ask your friends for recommendations.'
