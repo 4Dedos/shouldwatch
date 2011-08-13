@@ -6,7 +6,8 @@ set :rvm_ruby_string, 'ruby-1.9.2-p290@shouldwatch'
 set :application, "Should Watch"
 set :repository,  "git@github.com:rallyonrails/2011-equipo-36.git"
 set :branch, "master"
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
+set :copy_exclude, [".git"]
 set :use_sudo, false
 
 
