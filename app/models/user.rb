@@ -50,5 +50,15 @@ class User < ActiveRecord::Base
       movie
     end
   end
+  
+  def hit!
+    self.hits = (self.hits || 0) + 1
+    self.save
+  end
+  
+  def hits
+    read_attribute(:hits) || 0
+  end
+  
 end
 

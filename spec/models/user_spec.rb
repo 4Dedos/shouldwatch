@@ -23,9 +23,22 @@ describe User do
     end
   end
 
-#####################################################
-##
-#####################################################
+  
+  context "Counting hits" do
+    
+    before (:each) do
+      @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+    end
+    
+    it "should increment counter on :hit!" do
+      @user.hits.should be_eql(0)
+      @user.hit!
+      @user.hits.should be_eql(1)
+      3.times { @user.hit! }
+      @user.hits.should be_eql(4)      
+    end
+    
+  end
   
   context "#I recommend" do
 
