@@ -51,8 +51,5 @@
       %ul
         = render @recommended_to_me, :partial => 'movies/movie', :as => 'movie'
 
-- if current_user.guest?
-  .welcome_guest_popup
-- elsif current_user.hits <= 1
-  .first_visit_popup
+- if current_user.hits <= 1  
 
