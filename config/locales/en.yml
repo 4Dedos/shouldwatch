@@ -13,6 +13,7 @@ en:
       my_friends_recommends:  'My Friends Recommended'
       sign_in_with_twitter:   'Sign in with Twitter'
       sign_out:               'Sign Out'
+      empty_list:             'Empty list'
     first_visit:
       popup_title:            'This is your first visit!'
     welcome_guest:
@@ -25,3 +26,4 @@ en:
       i_have_account:             "I've already have an account,"
     movie_description:
       popup_title:                'Movie description'
+

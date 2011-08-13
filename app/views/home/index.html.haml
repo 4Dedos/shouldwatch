@@ -35,7 +35,7 @@
       %h2= t('.i_want_to_watch')
       %ul
         - if @want_to_watch.blank?
-          %li Empty list
+          %li= t('.empty_list')
         = render @want_to_watch
       .addMore
         %a{:href => "#"} Add more
@@ -44,14 +44,14 @@
       %h2= t('.i_recommend')
       %ul
         - if @i_recommend.blank?
-          %li Empty list
+          %li= t('.empty_list')
         = render @i_recommend
     .section.recomend
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
       %ul
         - if @recommended_to_me.blank?
-          %li Empty list
+          %li= t('.empty_list')
         = render @recommended_to_me
 
 - if current_user.hits <= 1
