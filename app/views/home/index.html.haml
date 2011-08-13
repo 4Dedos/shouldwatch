@@ -34,17 +34,7 @@
       #wantToWatchSection.anchor
       %h2= t('.i_want_to_watch')
       %ul
-        %li The Shawshank Redemption (1994)
-        %li The Godfather (1972)
-        %li The Godfather: Part II (1974)
-        %li The Good, the Bad and the Ugly (1966)
-        %li Pulp Fiction (1994)
-        %li 12 Angry Men (1957)
-        %li Schindler's List (1993)
-        %li One Flew Over the Cuckoo's Nest (1975)
-        %li Inception (2010)
-        %li The Dark Knight (2008)
-        %li The Lord of the Rings: The Return of the King (2003)
+        = render @want_to_watch, :partial => 'movies/movie', :as => 'movie'
       .addMore
         %a{:href => "#"} Add more
     .section.recomended
@@ -54,36 +44,15 @@
         %li
           The Shawshank Redemption (1994)
           %span.to &raquo; user
-        %li The Godfather (1972)
-        %li The Godfather: Part II (1974)
-        %li The Good, the Bad and the Ugly (1966)
-        %li Pulp Fiction (1994)
-        %li 12 Angry Men (1957)
-        %li Schindler's List (1993)
-        %li One Flew Over the Cuckoo's Nest (1975)
-        %li Inception (2010)
-        %li The Dark Knight (2008)
-        %li The Lord of the Rings: The Return of the King (2003)
+          = render @i_recommend, :partial => 'movies/movie', :as => 'movie'
     .section.recomend
       #recommnedSection.anchor
       %h2= t('.my_friends_recommends')
       %ul
-        %li The Shawshank Redemption (1994)
-        %li The Godfather (1972)
-        %li The Godfather: Part II (1974)
-        %li The Good, the Bad and the Ugly (1966)
-        %li Pulp Fiction (1994)
-        %li 12 Angry Men (1957)
-        %li Schindler's List (1993)
-        %li One Flew Over the Cuckoo's Nest (1975)
-        %li Inception (2010)
-        %li The Dark Knight (2008)
-        %li The Lord of the Rings: The Return of the King (2003)
-        
+        = render @recommended_to_me, :partial => 'movies/movie', :as => 'movie'
+
 - if current_user.guest?
   .welcome_guest_popup
-- elsif current_user.hits <= 1  
+- elsif current_user.hits <= 1
   .first_visit_popup
 
-
-  
