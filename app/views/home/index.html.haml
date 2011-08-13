@@ -33,23 +33,18 @@
     .section.wantToWatch
       #wantToWatchSection.anchor
       %h2= t('.i_want_to_watch')
-      %ul
-        = render @want_to_watch, :partial => 'movies/movie', :as => 'movie'
+      %ul= render @want_to_watch
       .addMore
         %a{:href => "#"} Add more
     .section.recomended
       #recommendSection.anchor
       %h2= t('.i_recommend')
-      %ul
-        %li
-          The Shawshank Redemption (1994)
-          %span.to &raquo; user
-          = render @i_recommend, :partial => 'movies/movie', :as => 'movie'
+      %ul= render @i_recommend
     .section.recomend
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
-      %ul
-        = render @recommended_to_me, :partial => 'movies/movie', :as => 'movie'
+      %ul= render @recommended_to_me
 
-- if current_user.hits <= 1  
+- if current_user.hits <= 1
   .first_visit_popup
+

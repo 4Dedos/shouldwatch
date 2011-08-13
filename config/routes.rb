@@ -6,7 +6,7 @@ Shouldwatch::Application.routes.draw do
   resources :movies do
     get 'search', :on => :collection
   end
-  
+
   get 'home/movie'
   get 'home/first_visit'
   get 'home/welcome_guest'
