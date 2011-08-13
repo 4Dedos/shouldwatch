@@ -141,10 +141,14 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 	line-height:30px;
 	text-decoration:none;
 }
-/*.header .menu li.selected a{
-	text-shadow: 0 0 4px rgba(255,245,155,0.8);
-	color:#fde722;:hover
-}*/
+
+
+.header .menu li.selected a{
+  text-shadow: 0 0 4px rgba(255,245,155,0.8);
+  color:#fde722;
+}
+
+
 .header .menu li:hover a{
 	text-shadow: 0 0 4px rgba(255,245,155,0.8);
 	color:#fde722;

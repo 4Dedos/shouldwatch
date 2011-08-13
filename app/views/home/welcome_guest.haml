@@ -1,2 +1,13 @@
 .welcome_guest
   %h1= t('.popup_title')
+  %p= t('.welcome_guest_description') 
+  
+  %ul
+    %li= t('.keep_track') 
+    %li= t('.ask_your_friends')
+    %li= t('.recommend')
+    
+  %a.button= t('.start_now')
+  .footer
+    = t('.i_have_account')
+    %a.button= t(:sign_in)

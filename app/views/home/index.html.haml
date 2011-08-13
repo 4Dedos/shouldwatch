@@ -14,7 +14,7 @@
       %li
         = link_to_function t('.i_recommend'), "$.scrollTo( '#recommendSection', 800, {duration:3000} );"
       %li
-        = link_to_function t('.recommended_to_me'), "$.scrollTo( '#recommnedSection', 800, {duration:3000} );"
+        = link_to_function t('.recommended_to_me'), "$.scrollTo( '#recommendedSection', 800, {duration:3000} );"
     .userPanel
       .user
         %span.pic= image_tag current_user.avatar
@@ -46,7 +46,7 @@
           %span.to &raquo; user
           = render @i_recommend, :partial => 'movies/movie', :as => 'movie'
     .section.recomend
-      #recommnedSection.anchor
+      #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
       %ul
         = render @recommended_to_me, :partial => 'movies/movie', :as => 'movie'

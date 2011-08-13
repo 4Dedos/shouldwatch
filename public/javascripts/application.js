@@ -26,7 +26,13 @@ MovieSearch = {
 	});
 
 // Colorbox
-	$(document).ready(function(){
-		$(".colorbox-link").colorbox();
-	});
+$(document).ready(function(){
+  
+  $(".colorbox-link").colorbox();
+	
+  $(".header .menu li").click(function(){
+    $(".header .menu li.selected").removeClass('selected');
+    $(this).addClass('selected');
+  })
+});
 

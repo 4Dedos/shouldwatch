@@ -2,6 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  sign_in:                   'Sign in'
   home: #Controller
     index: #View
       i_recommend:            'I Recommend'
@@ -15,6 +16,12 @@ en:
     first_visit:
       popup_title:            'This is your first visit!'
     welcome_guest:
-      popup_title:            'Welcome guest!'
+      popup_title:                'Welcome guest!'
+      welcome_guest_description:  'ShouldWatch is a productivity tool to help you watch more movies.'
+      keep_track:                 'Keep track of the movies that you want to watch.'
+      ask_your_friends:           'Ask your friends for recommendations.'
+      recommend:                  'Recommend movies that you like.'
+      start_now:                  'Start now!'
+      i_have_account:             "I've already have an account,"
     movie_description:
-      popup_title:            'Movie description'
+      popup_title:                'Movie description'
