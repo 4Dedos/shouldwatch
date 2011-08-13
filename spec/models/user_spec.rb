@@ -5,8 +5,6 @@ describe User do
     before (:each) do
       @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
       @user2 = User.new(:name => "mati", :avatar => "http://www.yahoo.com", :email => "other_none@noneland.com")
-      @user3 = User.new(:name => "fer", :avatar => "http://www.altavista.com", :email => "another_none@noneland.com")
-      @user4 = User.new(:name => "nico", :avatar => "http://www.bing.com", :email => "last_none@noneland.com")
     end
     
     it "return a list of movies that I recommend" do
@@ -23,4 +21,5 @@ describe User do
       @user2.recommended_to_me[0].movie_id.should == "gone_with_the_wind"
     end
   end
+
 end
