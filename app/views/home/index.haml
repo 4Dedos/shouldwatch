@@ -1,0 +1,77 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Should Watch
+    
+    = javascript_include_tag :defaults
+    
+  %body
+    .header
+      .inner
+        .shouldWatch
+          %h1 Should Watch
+        %ul.menu
+          %li.selected
+            = link_to 'I want to Watch', "#wantToWatchSection"
+          %li
+            = link_to 'I Recommend', "#recommendSection"
+          %li
+            = link_to 'Recommended to Me', "#recommnedSection"          
+        .userPanel
+          .user
+            %span.pic{:style => "background-image:url(images/temp/userpic.gif);"}
+            %span.name User name
+            = image_tag('baseImages/clip.png', :class => 'clip')
+          .stats
+            .watched
+              %span.amount 37
+              %span.when
+                Watched
+    .pageContent
+      .lists
+        .section.wantToWatch
+          #wantToWatchSection.anchor
+          %h2 I Want to Watch
+          %ul
+            %li The Shawshank Redemption (1994)
+            %li The Godfather (1972)
+            %li The Godfather: Part II (1974)
+            %li The Good, the Bad and the Ugly (1966)
+            %li Pulp Fiction (1994)
+            %li 12 Angry Men (1957)
+            %li Schindler's List (1993)
+            %li One Flew Over the Cuckoo's Nest (1975)
+            %li Inception (2010)
+            %li The Dark Knight (2008)
+            %li The Lord of the Rings: The Return of the King (2003)
+        .section.recomended
+          #recomemndSection.anchor
+          %h2 I Recommend
+          %ul
+            %li The Shawshank Redemption (1994)
+            %li The Godfather (1972)
+            %li The Godfather: Part II (1974)
+            %li The Good, the Bad and the Ugly (1966)
+            %li Pulp Fiction (1994)
+            %li 12 Angry Men (1957)
+            %li Schindler's List (1993)
+            %li One Flew Over the Cuckoo's Nest (1975)
+            %li Inception (2010)
+            %li The Dark Knight (2008)
+            %li The Lord of the Rings: The Return of the King (2003)
+        .section.recomend
+          #recomemndedSection.anchor
+          %h2 My Friends Recommended
+          %ul
+            %li The Shawshank Redemption (1994)
+            %li The Godfather (1972)
+            %li The Godfather: Part II (1974)
+            %li The Good, the Bad and the Ugly (1966)
+            %li Pulp Fiction (1994)
+            %li 12 Angry Men (1957)
+            %li Schindler's List (1993)
+            %li One Flew Over the Cuckoo's Nest (1975)
+            %li Inception (2010)
+            %li The Dark Knight (2008)
+            %li The Lord of the Rings: The Return of the King (2003)
