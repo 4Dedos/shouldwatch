@@ -25,3 +25,8 @@ MovieSearch = {
 		$("input, textarea, select, button").uniform();
 	});
 
+// Colorbox
+	$(document).ready(function(){
+		$(".colorbox-link").colorbox();
+	});
+

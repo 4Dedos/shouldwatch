@@ -336,6 +336,25 @@ margin-left:120px;
 	background:rgba(0 ,0 ,0 , 0.1);
 }
 /* End Listas */
+/* MoviePopUp */
+.movieContainer{
+	width:600px;
+	background:#EEEEEE;
+	color:#333333;
+	overflow:hidden;
+	padding:20px;
+}
+.movieContainer .pic{
+	width:170px;
+	float:left;
+}
+.movieContainer .text{
+	margin-left:150px;
+}
+.movieContainer .text h2{
+	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.2);
+}
+/* End MoviePopUp */
 
 
 /* Popups */

@@ -10,5 +10,9 @@ class MoviesController < ApplicationController
     render :json => 3.times.collect{ movie }
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+    render :layout => false
+  end
 end
 
