@@ -33,3 +33,6 @@ Shouldwatch::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+
+TWITTER_CONSUMER_KEY = 'wnyLvJErngRBt1geK98MBQ'
+TWITTER_CONSUMER_SECRET = 'bzoYVZBbL9PiFWmpP9klycflVuzs5GRD8HKxI4ug'
