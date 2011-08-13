@@ -14,7 +14,7 @@ development:
 test: &test
   adapter: mysql2
   encoding: utf8
-  databse: shouldwatch
+  database: shouldwatch_test
   pool: 5
   username: deploy
   password: Dedos4ever

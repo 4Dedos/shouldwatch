@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def i_should_watch_list
     ret = []
-    should_watch_movies.each do |swm|
+    self.should_watch_movies.each do |swm|
       ret << swm.movie
     end
 
@@ -37,25 +37,18 @@ class User < ActiveRecord::Base
   end
 
   def recommended_to_me_list
-    ret = []
-    recommended_to_me.select{ |m| m.added == false }.each do |rtm|
-      movie = rtm.movie
-      movie.recommended_by = rtm.user_origin
-      ret << movie
+    recommended = self.recommended_to_me.not_added
+    recommended.group_by(&:movie).collect do |movie, rtm|
+      movie.recommended_by = rtm.map(&:user_origin).map(&:name).join(', ')
+      movie
     end 
-
-    return ret
   end
 
   def i_recommend_list
-    ret = []
-    i_recommend.each do |ir|
-      movie = ir.movie
-      movie.recommended_to = ir.user_destination
-      ret << movie
+    self.i_recommend.group_by(&:movie).collect do |movie, ir|
+      movie.recommended_to = ir.map(&:user_destination).map(&:name).join(', ')
+      movie
     end
-
-    return ret
   end
 end
 
