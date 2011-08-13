@@ -12,4 +12,9 @@ en:
       my_friends_recommends:  'My Friends Recommended'
       sign_in_with_twitter:   'Sign in with Twitter'
       sign_out:               'Sign Out'
-
+    first_visit:
+      popup_title:            'This is your first visit!'
+    welcome_guest:
+      popup_title:            'Welcome guest!'
+    movie_description:
+      popup_title:            'Movie description'

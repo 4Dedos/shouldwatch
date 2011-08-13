@@ -81,4 +81,11 @@
         %li Inception (2010)
         %li The Dark Knight (2008)
         %li The Lord of the Rings: The Return of the King (2003)
+        
+- if current_user.guest?
+  .welcome_guest_popup
+- elsif current_user.hits <= 1  
+  .first_visit_popup
 
+
+  

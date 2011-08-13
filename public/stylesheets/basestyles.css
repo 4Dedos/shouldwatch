@@ -274,3 +274,22 @@ margin-left:120px;
 }
 /* End Listas */
 
+
+/* Popups */
+.welcome_guest {
+	width:600px;
+	background:#EEEEEE;
+	color:#333333;
+	overflow:hidden;
+	padding:20px;
+}
+
+.first_visit {
+	width:600px;
+	background:#EEEEEE;
+	color:#333333;
+	overflow:hidden;
+	padding:20px;
+}
+
+/* End Popups*/
