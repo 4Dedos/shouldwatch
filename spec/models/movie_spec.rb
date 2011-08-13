@@ -10,7 +10,10 @@ describe Movie do
                                                        :profile => "b",
                                                        :original => "c",
                                                        :detailed => "d"),
-                            :abridged_directors => [OpenStruct.new(:name =>"j")])
+                            :abridged_directors => [OpenStruct.new(:name =>"j")],
+                            :abridged_cast => [OpenStruct.new(:name => "a",
+                                                             :characters => ["1"])],
+                            :genres => ["1","2","ultraviolento"])
       RottenMovie.expects(:find).with(:id => "12132").returns(movie)
 
       movie = Movie.find_or_create_by_rt_id("12132")

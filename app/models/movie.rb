@@ -43,6 +43,10 @@ class Movie < ActiveRecord::Base
     movie.poster_original = rt_movie.posters.original
     movie.poster_detailed = rt_movie.posters.detailed
     movie.directors = rt_movie.abridged_directors.map(&:name).join(', ')
+    if !rt_movie.abridged_cast.blank?
+      movie.cast = rt_movie.abridged_cast.map(&:name).join(', ')
+    end
+    movie.genres = rt_movie.genres.join(', ')
     movie.save!
 
     return movie

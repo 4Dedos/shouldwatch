@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813191332) do
+ActiveRecord::Schema.define(:version => 20110813222544) do
 
   create_table "accepted_recommendations", :force => true do |t|
     t.integer  "user_origin_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20110813191332) do
     t.string   "poster_original"
     t.string   "poster_detailed"
     t.string   "imdb_id"
+    t.string   "cast"
+    t.string   "genres"
   end
 
   create_table "recommendations", :force => true do |t|
