@@ -22,3 +22,10 @@ role :web, "65.39.226.129"
 role :app, "65.39.226.129"
 role :db,  "65.39.226.129", :primary => true
 
+
+namespace :deploy do
+  task :restart, :roles => :app do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
+
