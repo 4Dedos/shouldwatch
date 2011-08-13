@@ -412,3 +412,54 @@ margin-left:120px;
 
 /* End Popups*/
 
+/* Movie Results */
+#search_handle {
+  cursor: pointer;
+}
+#search_results a, #search_results strong {
+  text-shadow: none;
+}
+#search_results li {
+  list-style: none;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0;
+}
+#search_results li a {
+    border-bottom: 1px solid #EFEFEF;
+    clear: both;
+    color: #136CB2;
+    display: block;
+    max-height: 100px;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+}
+#search_results li .suggestionlabel {
+    padding: 6px 4px 5px 50px;
+}
+#search_results li a:hover {
+  background-color: #F8F1BE;
+}
+#search_results li a .title {
+    font-weight: bold;
+    line-height: 110%;
+}
+#search_results li a .detail {
+    color: #666666;
+    font-size: 11px;
+    margin-top: 2px;
+    text-decoration: none;
+}
+#search_results li a .extra {
+    font-weight: normal;
+}
+#search_results li img {
+    float: left;
+    margin: 4px;
+    width: 40px;
+    height: 54px;
+}
+/* End MovieResults */

@@ -1,6 +1,24 @@
 class Movie < ActiveRecord::Base
   attr_accessor :recommended_by, :recommended_to
 
+  def self.search_by_name(name, limit = 10)
+    movies = RottenMovie.find(:title => name, :limit => limit)
+    if(movies.is_a? Array)
+      movies.map { |movie| [movie.id, "#{movie.title} (#{movie.year})"] }
+    elsif(movies.is_a? PatchedOpenStruct)
+      [movie.id, "#{movies.title} (#{movies.year})"]
+    else
+      raise "There was a type error on the returned result set."
+    end
+
+    movies.collect{|m| {
+      :id => m.id,
+      :title => m.title,
+      :year => ("(#{m.year})" if m.year),
+      :image => m.posters.thumbnail,
+      :detail => 'Details...'}}
+  end
+
   def self.find_or_create_by_rt_id(rotten_tomatoes_id)
     movie = Movie.where(:rotten_tomatoes_id => rotten_tomatoes_id).first
 
@@ -52,3 +70,4 @@ class Movie < ActiveRecord::Base
     return movie
   end
 end
+

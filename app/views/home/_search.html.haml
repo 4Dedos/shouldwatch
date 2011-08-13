@@ -1,6 +1,14 @@
+%script#autocomplete_template{:type => 'text/x-jquery-tmpl' }
+  %a
+    %img{:src =>"${image}"}
+    .suggestionLabel
+      %span.title= "${title}"
+      %span.extra= "${year}"
+      %div.detail= "${detail}"
 #search_box.formContainer
   = form_tag '/watchlist', :method => :post, :remote => true do
     = text_field_tag :query, nil, :id => 'search_field'
+    = hidden_field_tag :rt_id, nil
   #search_results
   :javascript
     MovieSearch.initialize();

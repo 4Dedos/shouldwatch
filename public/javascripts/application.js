@@ -9,12 +9,17 @@ MovieSearch = {
         appendTo: "#search_results",
 			  minLength: 1,
 			  select: function( event, ui ) {
+          $('#search_box').hide();
+          $('#rt_id').val(ui.item.id);
           $('#search_box form').submit();
-				  console.log( ui.item ?
-					  "Selected: " + ui.item.value + " aka " + ui.item.id :
-					  "Nothing selected, input was " + this.value );
 			  }
-		  });
+		  })
+      .data( "autocomplete" )._renderItem = function( ul, item ) {
+        return $( "<li></li>" )
+          .data( "item.autocomplete", item )
+          .append( $("#autocomplete_template").tmpl(item) )
+          .appendTo( ul );
+      };
 	  });
   }
 };
@@ -29,13 +34,12 @@ function callback_on_recommendation_close() {}
 
 // Colorbox
 $(document).ready(function(){
-  
+
   $(".colorbox-link").colorbox();
-	
+
   $(".header .menu li").click(function(){
     $(".header .menu li.selected").removeClass('selected');
     $(this).addClass('selected');
   });
-  
 });
 
