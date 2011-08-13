@@ -10,6 +10,10 @@
     .runtime
       - minutes = @movie.runtime.to_i
       = [minutes / 60, minutes % 60, (minutes * 60) % 60].map{|t| t.to_s.rjust(2, '0')}.join(':')
-
+    .genres
+      = @movie.genres
+    .cast
+      Cast
+      %p= @movie.cast
     %p= @movie.plot
 

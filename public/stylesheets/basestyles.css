@@ -388,6 +388,7 @@ margin-left:120px;
 }
 .movieContainer .text h2{
 	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.2);
+	margin-bottom: 0px;
 }
 /* End MoviePopUp */
 
