@@ -21,7 +21,7 @@ describe User do
       accepted_recommendation.added = false
       accepted_recommendation.save!
     end
-    
+
     it "return a list of movies that I recommend (plain)" do
       @user.i_recommend.count.should == 1
       @user.i_recommend[0].movie_id.should == "123"
@@ -70,4 +70,13 @@ describe User do
     end
   end
 
+  context "#User methods" do
+    it "should return an anonymous user" do
+      user = User.anonymous
+      user.should_not be_nil
+      user.name.should_not be_nil
+      user.avatar.should_not be_nil
+    end
+  end
 end
+

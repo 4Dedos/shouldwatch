@@ -5,18 +5,26 @@ class User < ActiveRecord::Base
   has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id"
   has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id"
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
-      user.name = auth["user_info"]["nickname"]
-      user.avatar = auth["user_info"]["image"]
-    end
+  def update_with_omniauth(auth)
+    self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
+    self.name = auth["user_info"]["nickname"]
+    self.avatar = auth["user_info"]["image"]
+    self.save
+    self
   end
 
   def self.find_by_provider_and_uid(provider, uid)
     if authentication_token = AuthenticationToken.find_by_provider_and_uid(provider, uid)
       authentication_token.user
     end
+  end
+
+  def self.anonymous
+    self.create(:name => 'anonymous', :avatar => 'anonymous.jpg ')
+  end
+
+  def guest?
+    self.authentication_tokens.empty?
   end
 
   def i_should_watch_list
@@ -29,7 +37,7 @@ class User < ActiveRecord::Base
       movie_hash[:year] = rotten_movie.year
       ret << movie_hash
     end
-   
+
     return ret
   end
 
@@ -42,7 +50,7 @@ class User < ActiveRecord::Base
       movie_hash[:title] = rotten_movie.title
       movie_hash[:year] = rotten_movie.year
       ret << movie_hash
-    end 
+    end
 
     return ret
   end

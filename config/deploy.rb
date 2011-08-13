@@ -1,5 +1,5 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) 
-require "rvm/capistrano"                  
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require "rvm/capistrano"
 require "bundler/capistrano"
 set :rvm_ruby_string, 'ruby-1.9.2-p290@shouldwatch'
 
@@ -13,13 +13,12 @@ set :use_sudo, false
 
 set :deploy_to, "/home/deploy/apps/shouldwatch.com"
 
-set :user, "deploy"  
-default_run_options[:pty] = true  
+set :user, "deploy"
+default_run_options[:pty] = true
 
 set :scm, :git
 
 role :web, "65.39.226.129"
 role :app, "65.39.226.129"
 role :db,  "65.39.226.129", :primary => true
-
 
