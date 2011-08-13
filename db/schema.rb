@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813003747) do
+ActiveRecord::Schema.define(:version => 20110813152014) do
 
   create_table "accepted_recommendations", :force => true do |t|
     t.integer  "user_origin_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110813003747) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "hits"
   end
 
 end
