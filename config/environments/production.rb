@@ -47,3 +47,7 @@ Shouldwatch::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
+
+TWITTER_CONSUMER_KEY = 'ATRqLvlKkU5MiEIjszSEYw'
+TWITTER_CONSUMER_SECRET = 'o6gZ2pA6sa5BcOwOSVmCoK1M3M2YNJTTIdr93RwKE'
+
