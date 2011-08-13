@@ -1,0 +1,44 @@
+/* Page reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+	margin: 0px;
+	padding: 0px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+img {
+	border: 0px;
+	max-width:100%;
+}
+ul{
+	list-style-position:inside;
+}
+a, a:visited{text-decoration:none; outline:none; color:#82d0d8;}
+a:hover{text-decoration:underline;}
+h1, h2, h3, h4, h5, h6{
+	font-weight:bold;
+	margin-bottom:1em;
+	font-family: 'Kreonbold', serif;
+	font-weight:700;
+}
+h1{font-size:28px;}
+h2{font-size:24px;}
+h3{font-size:22px;}
+h4{font-size:16px;}
+h5{font-size:16px;}
+h6{font-size:16px;}
+p{
+	margin-bottom:1em;
+}
+/* End Page reset */
+
+/* clearfix */
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+.userProof {
+  word-wrap: break-word;
+}
+/* End Clearfix */
