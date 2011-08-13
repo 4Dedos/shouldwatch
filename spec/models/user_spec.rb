@@ -196,6 +196,76 @@ describe User do
       @user.add_to_watch_list("12132")
       @user.i_should_watch_list.count.should == 1
     end
+  end
+
+  context "#Accept Recommendation" do
+    
+    before (:each) do
+      @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      @user.save!
+      @user2 = User.new(:name => "mati", :avatar => "http://www.yahoo.com", :email => "other_none@noneland.com")
+      @user2.save!
+      @user3 = User.new(:name => "nico", :avatar => "http://www.altavista.com", :email => "another_none@noneland.com")
+      @user3.save!
+      @movie = Movie.new(:title => "Rocky III", :year => "1983")
+      @movie.save!
+    end
+
+    it "add a recommendation to my list" do
+      r = Recommendation.new(:movie => @movie)
+      r.save!
+      @user2.recommendations << r
+      @user2.save!
+
+      @user.recommended_to_me_list.count.should == 0
+      @user.accept_recommendation(r)
+      @user.reload
+      list = @user.recommended_to_me_list
+      list.count.should == 1
+      list[0].recommended_by.should == "mati"
+    end
+
+    it "add the same recommendation to my list" do
+      r = Recommendation.new(:movie => @movie)
+      r.save!
+      @user2.recommendations << r
+      @user2.save!
+
+      @user.recommended_to_me_list.count.should == 0
+      @user.accept_recommendation(r)
+      @user.reload
+      @user.recommended_to_me_list.count.should == 1
+      @user.accept_recommendation(r)
+      @user.reload
+      list = @user.recommended_to_me_list
+      list.count.should == 1
+      list[0].recommended_by.should == "mati"
+    end
+
+    it "add 2 different recommendation of the same movie to my list" do
+      r = Recommendation.new(:movie => @movie)
+      r.save!
+      @user2.recommendations << r
+      @user2.save!
+
+      r2 = Recommendation.new(:movie => @movie)
+      r2.save!
+      @user3.recommendations << r2
+      @user3.save!
+
+      @user.recommended_to_me_list.count.should == 0
+      @user.accept_recommendation(r)
+      @user.reload
+      list = @user.recommended_to_me_list
+      list.count.should == 1
+      list[0].recommended_by.should == "mati"
+
+      @user.accept_recommendation(r2)
+      @user.reload
+      list = @user.recommended_to_me_list
+      list.count.should == 1
+      list[0].recommended_by.should == "mati, nico"
+    end
 
   end
 end

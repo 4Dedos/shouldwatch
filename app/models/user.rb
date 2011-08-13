@@ -71,5 +71,18 @@ class User < ActiveRecord::Base
     self.save!
   end
 
+  def accept_recommendation(recommendation)
+    ar = AcceptedRecommendation.where(:user_origin_id => recommendation.user.id,
+                                      :user_destination_id => self.id,
+                                      :movie_id => recommendation.movie.id).first
+    return if !ar.blank?
+    ar = AcceptedRecommendation.new
+    ar.movie = recommendation.movie
+    ar.user_origin = recommendation.user
+    ar.user_destination = self
+    ar.added = false
+    ar.save!
+  end
+
 end
 
