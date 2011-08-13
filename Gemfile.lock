@@ -80,6 +80,7 @@ GEM
     jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
+    jslint_on_rails (1.0.6)
     json (1.5.3)
     json_pure (1.5.3)
     linecache19 (0.5.12)
@@ -224,6 +225,7 @@ DEPENDENCIES
   haml (>= 3.0.0)
   haml-rails
   jquery-rails
+  jslint_on_rails
   mocha
   omniauth (~> 0.2.0)
   rails (= 3.0.9)

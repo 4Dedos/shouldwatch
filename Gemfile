@@ -28,5 +28,6 @@ group :development, :test do
   gem "mocha"
   gem "cucumber-rails"
   gem "capybara"
+  gem "jslint_on_rails" # Javascript validator
 end
 
