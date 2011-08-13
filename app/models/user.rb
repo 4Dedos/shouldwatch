@@ -46,5 +46,19 @@ class User < ActiveRecord::Base
 
     return ret
   end
+
+  def i_recommend_list
+    ret = []
+    i_recommend.each do |movie|
+      rotten_movie = RottenMovie.find(:id => movie.movie_id)
+      movie_hash = {}
+      movie_hash[:id] = movie.id
+      movie_hash[:title] = rotten_movie.title
+      movie_hash[:year] = rotten_movie.year
+      ret << movie_hash
+    end
+
+    return ret
+  end
 end
 
