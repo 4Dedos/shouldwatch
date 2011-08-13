@@ -3,31 +3,38 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title Should Watch
-    
+
     = javascript_include_tag :defaults
-    
+
   %body
     .header
       .inner
         .shouldWatch
           %h1 Should Watch
+          .login
+            %p
+              - if current_user
+                = link_to "Sign Out", signout_path
+              - else
+                = link_to "Sign in with Twitter", "/auth/twitter"
         %ul.menu
           %li.selected
             = link_to 'I want to Watch', "#wantToWatchSection"
           %li
             = link_to 'I Recommend', "#recommendSection"
           %li
-            = link_to 'Recommended to Me', "#recommnedSection"          
-        .userPanel
-          .user
-            %span.pic{:style => "background-image:url(images/temp/userpic.gif);"}
-            %span.name User name
-            = image_tag('baseImages/clip.png', :class => 'clip')
-          .stats
-            .watched
-              %span.amount 37
-              %span.when
-                Watched
+            = link_to 'Recommended to Me', "#recommnedSection"
+        - if current_user
+          .userPanel
+            .user
+              %span.pic= image_tag current_user.avatar
+              %span.name= current_user.name
+              = image_tag('baseImages/clip.png', :class => 'clip')
+            .stats
+              .watched
+                %span.amount 37
+                %span.when
+                  Watched
     .pageContent
       .lists
         .section.wantToWatch
@@ -75,3 +82,4 @@
             %li Inception (2010)
             %li The Dark Knight (2008)
             %li The Lord of the Rings: The Return of the King (2003)
+

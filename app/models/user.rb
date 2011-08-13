@@ -4,4 +4,19 @@ class User < ActiveRecord::Base
   has_many :recommendations
   has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id"
   has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id"
+
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
+      user.name = auth["user_info"]["nickname"]
+      user.avatar = auth["user_info"]["image"]
+    end
+  end
+
+  def self.find_by_provider_and_uid(provider, uid)
+    if authentication_token = AuthenticationToken.find_by_provider_and_uid(provider, uid)
+      authentication_token.user
+    end
+  end
 end
+
