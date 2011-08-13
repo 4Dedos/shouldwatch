@@ -223,19 +223,21 @@ margin-left:120px;
 }
 
 .userPanel .recommended_by_me .amount {
-        font-size: 28px;
-        color:#990000;
-        line-height:18px;
-        float: left;
-        margin-right:10px;
+  font-size: 28px;
+  color:#990000;
+  line-height:18px;
+  float: left;
+  margin-right:10px;
+  margin-left: 22px;
 }
 
 .userPanel .recommended_to_me .amount {
-        font-size: 28px;
-        color:#990000;
-        line-height: 18px;
-        float: left;
-        margin-right: 10px;
+  font-size: 28px;
+  color:#990000;
+  line-height: 18px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 22px;
 }
 
 .userPanel .watched .when{
@@ -408,3 +410,4 @@ margin-left:120px;
 }
 
 /* End Popups*/
+
