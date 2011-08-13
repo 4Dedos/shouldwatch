@@ -14,5 +14,12 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     render :layout => false
   end
+
+  def destroy
+    @should_watch_movie = ShouldWatchMovie.where(:movie_id => params[:id]).first
+    @should_watch_movie.destroy
+
+    redirect_to root_path, :notice => "The movie was removed."
+  end
 end
 

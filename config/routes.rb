@@ -12,10 +12,10 @@ Shouldwatch::Application.routes.draw do
   get 'home/welcome_guest'
 
   resources :watchlist, :only => [:create]
-  
+
   resources :recommendations, :only => [:show]
   match '/r/:id' => 'recommendations#show'
-  
+
   root :to => "home#index"
 
 

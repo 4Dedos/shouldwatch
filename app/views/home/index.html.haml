@@ -22,15 +22,15 @@
         = image_tag('baseImages/clip.png', :class => 'clip')
       .stats
         .watched
-          %span.amount 37
+          %span.amount= @want_to_watch.size
           %span.when
             = t('.want_to_watch')
         .recommended_by_me
-          %span.amount 10
+          %span.amount= @i_recommend.size
           %span.when
             = t('.i_recommend')
         .recommended_to_me
-          %span.amount 15
+          %span.amount= @recommended_to_me.size
           %span.when
             = t('recommended_to_me')
     .search
@@ -65,3 +65,4 @@
 - if @popup_template
   #popup{:style => 'display:none;' }
     = render :template => @popup_template
+

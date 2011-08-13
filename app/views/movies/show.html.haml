@@ -17,3 +17,6 @@
       %p= @movie.cast
     %p= @movie.plot
 
+  .actions
+    = link_to "remove", @movie, :confirm => 'Are you sure you want to remove this movie?', :method => :delete
+
