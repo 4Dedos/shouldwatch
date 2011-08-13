@@ -29,13 +29,8 @@ class User < ActiveRecord::Base
 
   def i_should_watch_list
     ret = []
-    should_watch_movies.each do |movie|
-      rotten_movie = RottenMovie.find(:id => movie.movie_id)
-      movie_hash = {}
-      movie_hash[:id] = movie.id
-      movie_hash[:title] = rotten_movie.title
-      movie_hash[:year] = rotten_movie.year
-      ret << movie_hash
+    should_watch_movies.each do |swm|
+      ret << swm.movie
     end
 
     return ret
@@ -43,27 +38,21 @@ class User < ActiveRecord::Base
 
   def recommended_to_me_list
     ret = []
-    recommended_to_me.select{ |m| m.added == false }.each do |movie|
-      rotten_movie = RottenMovie.find(:id  => movie.movie_id)
-      movie_hash = {}
-      movie_hash[:id] = movie.id
-      movie_hash[:title] = rotten_movie.title
-      movie_hash[:year] = rotten_movie.year
-      ret << movie_hash
-    end
+    recommended_to_me.select{ |m| m.added == false }.each do |rtm|
+      movie = rtm.movie
+      movie.recommended_by = rtm.user_origin
+      ret << movie
+    end 
 
     return ret
   end
 
   def i_recommend_list
     ret = []
-    i_recommend.each do |movie|
-      rotten_movie = RottenMovie.find(:id => movie.movie_id)
-      movie_hash = {}
-      movie_hash[:id] = movie.id
-      movie_hash[:title] = rotten_movie.title
-      movie_hash[:year] = rotten_movie.year
-      ret << movie_hash
+    i_recommend.each do |ir|
+      movie = ir.movie
+      movie.recommended_to = ir.user_destination
+      ret << movie
     end
 
     return ret

@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(:version => 20110813152014) do
   create_table "accepted_recommendations", :force => true do |t|
     t.integer  "user_origin_id"
     t.integer  "user_destination_id"
-    t.string   "movie_id"
     t.boolean  "added"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movie_id"
   end
 
   create_table "authentication_tokens", :force => true do |t|
@@ -30,19 +30,32 @@ ActiveRecord::Schema.define(:version => 20110813152014) do
     t.string   "provider"
   end
 
-  create_table "recommendations", :force => true do |t|
-    t.string   "movie_id"
-    t.string   "token"
-    t.integer  "user_id"
+  create_table "movies", :force => true do |t|
+    t.string   "poster"
+    t.string   "title"
+    t.string   "year"
+    t.string   "directors"
+    t.string   "runtime"
+    t.string   "plot"
+    t.string   "links"
+    t.string   "rotten_tomatoes_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "should_watch_movies", :force => true do |t|
+  create_table "recommendations", :force => true do |t|
+    t.string   "token"
     t.integer  "user_id"
-    t.string   "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movie_id"
+  end
+
+  create_table "should_watch_movies", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
   end
 
   create_table "users", :force => true do |t|
