@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   def update_with_omniauth(auth)
     self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
     self.name = auth["user_info"]["nickname"]
-    self.avatar = auth["user_info"]["image"]
+    self.avatar = auth["user_info"]["image"].gsub('normal', 'bigger') if auth["user_info"]["image"]
     self.save
     self
   end
