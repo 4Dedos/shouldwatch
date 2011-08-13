@@ -26,10 +26,8 @@
           %span.when
             = t('.watched')
             = link_to t('.this_month'), '#'
-    / .search
-    /   .formContainer
-    /     %input{:type => "text"}/
-    /   .handler Search
+    .search
+      = render '/home/search'
 .pageContent
   .lists
     .section.wantToWatch

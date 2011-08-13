@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 }
 /*.header .menu li.selected a{
 	text-shadow: 0 0 4px rgba(255,245,155,0.8);
-	color:#fde722;
+	color:#fde722;:hover
 }*/
 .header .menu li:hover a{
 	text-shadow: 0 0 4px rgba(255,245,155,0.8);
@@ -229,6 +229,69 @@ margin-left:120px;
 	text-shadow:none;
 }
 /* End User Panel */
+
+/* Search */
+.search{
+	position:absolute;
+	left:260px;
+	top:181px;
+}
+
+.search .handler{
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-radius-bottomright: 5px;
+	-webkit-border-radius-bottomleft: 5px;
+	-o-border-radius-bottomright: 5px;
+	-o-border-radius-bottomleft: 5px;
+	border-radius-bottomright: 5px;
+	border-radius-bottomleft: 5px;
+	-moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	-o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	background:rgba(255, 255, 255, 0.8);
+	color:#333333;
+	text-align:center;
+	width:80px;
+	height:25px;
+	line-height:25px;
+	font-family: 'GloriaHallelujahRegular', serif;
+	position:absolute;
+	left:20px;
+	bottom:-25px;
+}
+.search .formContainer{
+	width:350px;
+	background: #D7D9DB;
+	-moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+	-moz-border-radius-bottomright: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	-webkit-border-radius-bottomright: 2px;
+	-webkit-border-radius-bottomleft: 2px;
+	-o-border-radius-bottomright: 2px;
+	-o-border-radius-bottomleft: 2px;
+	border-radius-bottomright: 2px;
+	border-radius-bottomleft: 2px;
+	-moz-transition: All 1s ease;
+	-webkit-transition: All 1s ease;
+	-0-transition: All 1s ease;
+	overflow:hidden;
+	display: none;
+}
+/*.search:hover .formContainer{
+	height:100px;
+}*/
+.search .formContainer input{
+	margin:30px;
+	width:220px;
+	height:30px;
+	line-height:30px;
+}
+/* End Search */
 
 /* Listas */
 .lists .section{

@@ -18,13 +18,12 @@ gem "omniauth", "~> 0.2.0"
 
 
 group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
-
   # DEPLOYMENT
   gem 'capistrano'
 end
 
 group :development, :test do
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem "rspec-rails", ">= 2.0.1"
   gem "mocha"
   gem "cucumber-rails"

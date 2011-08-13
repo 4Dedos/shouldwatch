@@ -1,0 +1,8 @@
+#search_box.formContainer
+  = form_tag '/watchlist', :method => :post, :remote => true do
+    = text_field_tag :query, nil, :id => 'search_field'
+  #search_results
+  :javascript
+    MovieSearch.initialize();
+#search_handle.handler Search
+

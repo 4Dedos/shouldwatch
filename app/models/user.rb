@@ -27,6 +27,9 @@ class User < ActiveRecord::Base
     self.authentication_tokens.empty?
   end
 
+  def add_to_watch_list(rt_id)
+  end
+
   def i_should_watch_list
     ret = []
     self.should_watch_movies.each do |swm|

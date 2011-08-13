@@ -11,6 +11,8 @@ Shouldwatch::Application.routes.draw do
   get 'home/first_visit'
   get 'home/welcome_guest'
 
+  resources :watchlist, :only => [:create]
+
   root :to => "home#index"
 
 
