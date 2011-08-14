@@ -52,7 +52,7 @@
       %ul
         - if @i_recommend.blank?
           %li= t('.empty_list')
-        = render @i_recommend
+        = render :partial => '/movies/i_recommend', :collection => @i_recommend, :as => :movie
     .section.recomend
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
