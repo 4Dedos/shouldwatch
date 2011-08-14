@@ -40,6 +40,13 @@
         .search
           = render 'search'
     = yield
+    .footer
+      .inner
+        #twitter
+        .about_links
+          = link_to 'Welcome', '/welcome?s=footer', :class => 'colorbox-link'
+          |
+          = link_to 'About The Team', '/about', :class => 'colorbox-link'
     = render 'layouts/chartbeat'
     = render 'layouts/user_voice'
 
