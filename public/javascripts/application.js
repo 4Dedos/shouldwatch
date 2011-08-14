@@ -42,6 +42,18 @@ MovieSearch = {
   }
 };
 
+WatchList = {
+  sortable: function () {
+      $("#movies_i_want_to_watch").sortable({
+        cursor: "move",
+        update: function() {
+          var movies_order = $(this).sortable('toArray').toString();
+          $.post('/movies/order', {movies_order: movies_order});
+        }
+      });
+  }
+};
+
 // Popups Callbacks functions
 function callback_on_recommendation_close() {}
 
@@ -53,6 +65,7 @@ $(function(){
 function initialBind(){
   // Colorbox
   $(".colorbox-link").colorbox({height: '273px'});
+  WatchList.sortable();
 }
 
 $(document).ready(function(){

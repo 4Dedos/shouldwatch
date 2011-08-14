@@ -44,16 +44,6 @@
     .addMore
       %a{:href => "#"} Get more recommendations from your friends
 
-:javascript
-  $(function() {
-    $("#movies_i_want_to_watch").sortable({
-      cursor: "move",
-      update: function() {
-        var movies_order = $(this).sortable('toArray').toString();
-        $.post('/movies/order', {movies_order: movies_order});
-      }
-    });
-  })
 
 - if @popup_template
   #popup{:style => 'display:none;' }
