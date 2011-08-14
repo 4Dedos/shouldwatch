@@ -54,7 +54,7 @@ class MoviesController < ApplicationController
     @should_watch_movie = current_user.should_watch_movies.where(:movie_id => params[:id]).first
     @should_watch_movie.update_attribute(:watched, true)
     @trigger_movie = @should_watch_movie.movie
-    redirect_to root_path(:watched => @trigger_movie.id), :notice => "Congratulations! You have watched #{@should_watch_movie.movie.title}."
+    redirect_to root_path, :notice => "Congratulations! You have watched #{@should_watch_movie.movie.title}."
   end
 end
 
