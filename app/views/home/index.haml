@@ -8,8 +8,8 @@
       = render '/home/want_to_watch_list'
     .section.recommended
       #recommendedSection.anchor
-      %h2= t('.my_friends_recommend')
-      %ul
+      %h2= t('.my_friends_recommends')
+      %ul#recommended_to_me
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
         = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie

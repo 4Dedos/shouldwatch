@@ -1,0 +1,4 @@
+$("li#recommended_to_me_<%= dom_id(@movie)%>").remove();
+<%- if @recommended_to_me.blank? %>
+  $("ul#recommended_to_me").html('<li>Empty list</li>')
+<% end %>  

@@ -6,6 +6,8 @@ Shouldwatch::Application.routes.draw do
     get 'search', :on => :collection
     get 'watch_this', :on => :member
     post 'recommend', :on => :member
+    post 'accept_recommendation', :on => :member
+    post 'reject_recommendation', :on => :member
     post 'order', :on => :collection
   end
 

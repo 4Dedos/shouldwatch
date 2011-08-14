@@ -1,7 +1,7 @@
-%li
+%li{:id => "recommended_to_me_#{dom_id(movie)}"}
   = link_to movie.title, movie, :class => 'colorbox-link'
   %span{ :class => "to" }
     = recommended_by(movie.recommended_by) if !movie.recommended_by.blank?
-    = link_to image_tag("accept.gif"), watch_this_movie_path(movie), :title => 'Accept Recommendation'
-    = link_to image_tag("cancel.png"), movie, :method => :delete, :title => 'Remove'
+    = link_to image_tag("accept.gif"), accept_recommendation_movie_path(movie), :title => 'Accept Recommendation', :remote => :true, :method => :post
+    = link_to image_tag("cancel.png"), reject_recommendation_movie_path(movie), :method => :post, :remote => :true, :title => 'Remove'
 
