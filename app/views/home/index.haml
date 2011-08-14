@@ -11,12 +11,12 @@
           = image_tag '/images/bird_16_gray.png'
           = link_to t('.sign_out'), signout_path
     %ul.menu
-      %li.selected
-        = link_to_function t('.i_want_to_watch'), "$.scrollTo( '#wantToWatchSection', 800, {duration:3000} );"
-      %li
-        = link_to_function t('.i_recommend'), "$.scrollTo( '#recommendSection', 800, {duration:3000} );"
-      %li
-        = link_to_function t('.recommended_to_me'), "$.scrollTo( '#recommendedSection', 800, {duration:3000} );"
+      %li#wantToWatchSection_li.selected
+        = link_to_function t('.i_want_to_watch'), "scrollToSection('#wantToWatchSection');"
+      %li#recommendSection_li
+        = link_to_function t('.i_recommend'), "scrollToSection('#recommendSection');"
+      %li#recommendedSection_li
+        = link_to_function t('.recommended_to_me'), "scrollToSection('#recommendedSection');" 
     .userPanel
       = render '/home/user_panel'
     .search
