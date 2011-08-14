@@ -27,5 +27,14 @@ class MoviesController < ApplicationController
     @recommendation = @movie.create_recommendation(current_user)
   end
 
+  def order
+    movies_order = params[:movies_order]
+    new_order = movies_order.split(',').collect do |movie_id|
+      movie_id.split('_')[1]
+    end
+
+    #current_user.update_should_watch_list(new_order)
+    render :json => {:ok => "true"}
+  end
 end
 

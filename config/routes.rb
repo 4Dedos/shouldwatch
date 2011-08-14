@@ -6,6 +6,7 @@ Shouldwatch::Application.routes.draw do
   resources :movies do
     get 'search', :on => :collection
     post 'recommend', :on => :member
+    post 'order', :on => :collection
   end
 
   get 'home/movie'
