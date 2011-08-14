@@ -55,12 +55,16 @@ class Movie < ActiveRecord::Base
     movie.year = rt_movie.year
     movie.runtime = rt_movie.runtime
     movie.plot = rt_movie.synopsis
-    movie.imdb_id = rt_movie.alternate_ids.imdb
+    if !rt_movie.alternate_ids.blank?
+      movie.imdb_id = rt_movie.alternate_ids.imdb
+    end
     movie.poster_thumbnail = rt_movie.posters.thumbnail
     movie.poster_profile = rt_movie.posters.profile
     movie.poster_original = rt_movie.posters.original
     movie.poster_detailed = rt_movie.posters.detailed
-    movie.directors = rt_movie.abridged_directors.map(&:name).join(', ')
+    if !rt_movie.abridged_directors.blank?
+      movie.directors = rt_movie.abridged_directors.map(&:name).join(', ')
+    end
     if !rt_movie.abridged_cast.blank?
       movie.cast = rt_movie.abridged_cast.map(&:name).join(', ')
     end
