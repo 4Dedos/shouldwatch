@@ -2,6 +2,7 @@ class RecommendationsController < ApplicationController
 
   def show
     @recommendation = Recommendation.find(params[:id])
+    @movie = @recommendation.movie
     current_user.accept_recommendation(@recommendation)
     @popup_template = 'recommendations/show'
     prepare_lists

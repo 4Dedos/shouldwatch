@@ -10,7 +10,7 @@
     %li= t('.ask_your_friends')
   - unless params[:s]
     .start
-      = button_to t('.start_now'), "$.fn.colorbox.close()"
+      = button_to_function t('.start_now'), "$.fn.colorbox.close()"
 
     .foot
       = t('.i_have_account')

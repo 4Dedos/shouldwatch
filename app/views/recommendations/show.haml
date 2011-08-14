@@ -2,5 +2,12 @@
   function popupClose() {
     callback_on_recommendation_close();
   }
-%h1 Show Recommendation
-%p= @recommendation.token
+
+.popupContainer.recommendation.about
+  %h1= "A Recommendation for you"
+  %h4= "#{@recommendation.user.name} thinks you should watch this movie"
+  = render 'movies/movie_info'
+  %h3
+    Keep track of the movies you want to watch with
+    = link_to_function "ShouldWatch", "$.fn.colorbox.close()"
+

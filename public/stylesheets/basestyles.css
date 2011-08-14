@@ -579,13 +579,17 @@ margin-left:120px;
   font-size: 40px;
 }
 
-.first_visit .start {
+.about h3 {
+  margin-top: 40px;
+}
+
+.about .start {
   right: 50px;
   bottom: 70px;
   position: absolute;
 }
 
-.first_visit .foot {
+.about .foot {
   position: absolute;
   bottom: 20px;
   right: 20px;
