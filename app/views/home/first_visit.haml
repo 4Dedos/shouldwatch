@@ -1,16 +1,18 @@
 :javascript
   function popupClose() {}
-.popupContainer.first_visit
+.popupContainer.first_visit.about
   %h1= t('.popup_title')
-  %p= t('.welcome_guest_description')
+  %h4= t('.welcome_guest_description')
 
-  %ul
+  %ul.features
     %li= t('.keep_track')
     %li= t('.recommend')
     %li= t('.ask_your_friends')
+  - unless params[:s]
+    .start
+      = button_to t('.start_now'), "$.fn.colorbox.close()"
 
-  %a.button= t('.start_now')
-  .footer
-    = t('.i_have_account')
-    %a.button= t(:sign_in)
+    .foot
+      = t('.i_have_account')
+      = link_to t(:sign_in), '/auth/twitter'
 

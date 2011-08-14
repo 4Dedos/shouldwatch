@@ -20,11 +20,11 @@ en:
       popup_title:            'Welcome guest!'
     first_visit:
       popup_title:                'Welcome!'
-      welcome_guest_description:  'ShouldWatch is a productivity tool to help you watch more movies.'
+      welcome_guest_description:  'ShouldWatch is a productivity tool to help you watch more movies'
       keep_track:                 'Keep track of the movies that you want to watch.'
       ask_your_friends:           'Ask your friends for recommendations.'
       recommend:                  'Recommend movies that you like.'
-      start_now:                  'Start now!'
+      start_now:                  'Start now'
       i_have_account:             "I've already have an account,"
     movie_description:
       popup_title:                'Movie description'

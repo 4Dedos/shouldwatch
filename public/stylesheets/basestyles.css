@@ -386,6 +386,10 @@ margin-left:120px;
 .lists a {
   color: #DDDDDD;
 }
+.lists .empty {
+  font-size: 16px;
+  font-style: italic;
+}
 /* End Listas */
 /* MoviePopUp */
 .popupContainer{
@@ -552,5 +556,30 @@ margin-left:120px;
 .about h2 a .name{
   display:block;
   font-size:16px;
+}
+
+.features {
+  margin-left: 20px;
+}
+.features li {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.first_visit h4 {
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.first_visit .start {
+  right: 50px;
+  bottom: 70px;
+  position: absolute;
+}
+
+.first_visit .foot {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 

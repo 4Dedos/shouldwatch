@@ -13,10 +13,10 @@
     %ul.menu
       %li#wantToWatchSection_li.selected
         = link_to_function t('.i_want_to_watch'), "scrollToSection('#wantToWatchSection');"
+      %li#recommendedSection_li
+        = link_to_function t('.recommended_to_me'), "scrollToSection('#recommendedSection');"
       %li#recommendSection_li
         = link_to_function t('.i_recommend'), "scrollToSection('#recommendSection');"
-      %li#recommendedSection_li
-        = link_to_function t('.recommended_to_me'), "scrollToSection('#recommendedSection');" 
     .userPanel
       = render '/home/user_panel'
     .search
@@ -29,13 +29,6 @@
         = t('.i_want_to_watch')
         /%span.warning{:style => display_if(show_warning?)}= '*'
       = render '/home/want_to_watch_list'
-    .section.recommend
-      #recommendSection.anchor
-      %h2= t('.i_recommend')
-      %ul
-        - if @i_recommend.blank?
-          %li= t('.empty_list')
-        = render :partial => '/movies/i_recommend', :collection => @i_recommend, :as => :movie
     .section.recommended
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
@@ -43,9 +36,16 @@
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
         = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
-    .addMore
-      %a{:href => "#"} Get more recommendations from your friends
-
+      .addMore
+        %a{:href => "#"} Ask for recommendations
+    .section.recommend
+      #recommendSection.anchor
+      %h2= t('.i_recommend')
+      %ul
+        - if @i_recommend.blank?
+          %p.empty
+            Start making recommendations. Click on any movie and use the recommendation tool to tell your friends what movies they should watch.
+        = render :partial => '/movies/i_recommend', :collection => @i_recommend, :as => :movie
 
 - if @popup_template
   #popup{:style => 'display:none;' }
@@ -53,5 +53,7 @@
 
 .footer
   .inner
-    = link_to 'About', '/about', :class => 'colorbox-link'
+    = link_to 'Welcome', '/welcome?s=footer', :class => 'colorbox-link'
+    |
+    = link_to 'About The Team', '/about', :class => 'colorbox-link'
 

@@ -1,8 +1,10 @@
 #want_to_watch_list
   %ul{:id => "movies_i_want_to_watch"}
     - if @want_to_watch.blank?
-      %li= t('.empty_list')
+      %p.empty
+        This is your watchlist. Add the movies that you want to watch here.
+        Sort and manage your list and mark movies when you finish watching them.
     = render :partial => '/movies/want_to_watch', :collection => @want_to_watch, :as => :movie
   .addMore
-    = link_to_function 'Add more', 'MovieSearch.showBox();'
+    = link_to_function '+ Add a movie', 'MovieSearch.showBox();'
 
