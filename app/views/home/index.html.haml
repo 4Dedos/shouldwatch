@@ -59,7 +59,7 @@
       %ul
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
-        = render @recommended_to_me
+        = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
 
 
 - if @popup_template
