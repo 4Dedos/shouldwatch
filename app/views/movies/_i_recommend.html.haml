@@ -1,5 +1,5 @@
 %li
   = link_to movie.title, movie, :class => 'colorbox-link'
   %span{ :class => "to" }
-    = movie.recommended_to
+    = recommended_to(movie.recommended_to) if !movie.recommend_to.blank?
 

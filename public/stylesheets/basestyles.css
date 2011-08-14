@@ -373,6 +373,12 @@ margin-left:120px;
 .lists ul li .from{
 	float:right;
 }
+
+.lists ul li .to a,
+.lists ul li .from a{
+        font-size:12px;
+}
+
 .lists .addMore{
 	margin-left:330px;
 	font-size:14px;
