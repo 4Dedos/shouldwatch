@@ -18,12 +18,12 @@
           %h1 Should Watch
         .logIn
           %p
-          - if current_user.guest?
-            = link_to '/auth/twitter' do
-              = image_tag '/images/sign-in-with-twitter-l.png', :alt => t('.sign_in_with_twitter'), :title => t('.sign_in_with_twitter')
-          - else
-            = image_tag '/images/bird_16_gray.png'
-            = link_to t('.sign_out'), signout_path
+            - if current_user.guest?
+              = link_to '/auth/twitter' do
+                = image_tag '/images/sign-in-with-twitter-l.png', :alt => t('.sign_in_with_twitter'), :title => t('.sign_in_with_twitter')
+            - else
+              = image_tag '/images/bird_16_gray.png'
+              = link_to t('.sign_out'), signout_path
         %ul.menu
           - if @profile_user
             %li= "#{@profile_user.name} profile's"

@@ -3,15 +3,17 @@
 
 en:
   sign_in:                   'Sign in'
-
-  home: #Controller
-    index: #View
+  layouts:
+    application:
+      sign_in_with_twitter:   'Sign in with Twitter'
+      i_want_to_watch:        'I want to Watch'
       i_recommend:            'I Recommend'
       recommended_to_me:      'Recommended to Me'
+  home: #Controller
+    index: #View
       watched:                'Watched'
       want_to_watch:          'Want to watch'
       this_month:             'This Month'
-      i_want_to_watch:        'I want to Watch'
       my_friends_recommends:  'My Friends Recommended'
       sign_in_with_twitter:   'Sign in with Twitter'
       sign_out:               'Sign Out'
