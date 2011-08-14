@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :authentication_tokens
-  has_many :should_watch_movies, :order => 'position ASC'
-  has_many :recommendations
-  has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id"
-  has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id"
+  has_many :authentication_tokens, :dependent => :destroy
+  has_many :should_watch_movies, :order => 'position ASC', :dependent => :destroy
+  has_many :recommendations, :dependent => :destroy
+  has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id", :dependent => :destroy
+  has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id", :dependent => :destroy
   #has_many :movies_i_should_watch, :class_name => "Movie", :through => :should_watch_movies, :source => :movie
 
   def update_with_omniauth(auth)
