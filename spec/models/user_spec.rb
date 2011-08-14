@@ -9,7 +9,7 @@ describe User do
       m2 = Movie.new(:title => "The Godfather", :year => "1978")
       m3 = Movie.new(:title => "Rocky III", :year => "1983")
       @root_user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
-      @root_user.stubs(:should_watch_movies).returns([ShouldWatchMovie.new(:movie => m1), ShouldWatchMovie.new(:movie => m2)])
+      @root_user.stubs(:should_watch_movies).returns(stub(:not_watched => [ShouldWatchMovie.new(:movie => m1), ShouldWatchMovie.new(:movie => m2)]))
       @root_user.stubs(:recommended_to_me).returns([AcceptedRecommendation.new(:movie => m1, :added => false), AcceptedRecommendation.new(:movie => m2, :added => false), AcceptedRecommendation.new(:movie => m3, :added => true)])
     end
 
@@ -350,6 +350,83 @@ describe User do
       list[0].title.should == "Star Wars I"
       list[1].title.should == "Something about Mary"
       list[2].title.should == "Star Wars II"
+    end
+  end
+
+  context "#My watched List" do
+
+    it "show 2 should watch and 1 have watched" do
+      user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      user.save!
+      movie1 = Movie.new(:title => "Something about Mary", :year => "1998", :rotten_tomatoes_id => "1")
+      movie1.save!
+      movie2 = Movie.new(:title => "Star Wars I", :year => "2001", :rotten_tomatoes_id => "2")
+      movie2.save!
+      user.add_to_watch_list("1")
+      user.add_to_watch_list("2")
+
+      movie3 = Movie.new(:title => "Star Wars II", :year => "2004", :rotten_tomatoes_id => "3")
+      movie3.save!
+      swm = ShouldWatchMovie.create_swm_by_user_and_movie(user, movie3)
+      swm.user = user
+      swm.watched = true
+      swm.save!
+      user.reload
+
+      user.should_watch_movies.count.should == 3
+
+      isw = user.i_should_watch_list
+      isw.count.should == 2
+      isw[0].title.should == "Something about Mary"
+      isw[1].title.should == "Star Wars I"
+
+      ihw = user.i_have_watched_list
+      user.i_have_watched_count.should == 1
+      ihw[0].title.should == "Star Wars II"
+    end
+
+    it "show 2 should watch and 0 have watched" do
+      user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      user.save!
+      movie1 = Movie.new(:title => "Something about Mary", :year => "1998", :rotten_tomatoes_id => "1")
+      movie1.save!
+      movie2 = Movie.new(:title => "Star Wars I", :year => "2001", :rotten_tomatoes_id => "2")
+      movie2.save!
+      user.add_to_watch_list("1")
+      user.add_to_watch_list("2")
+
+      user.reload
+
+      user.should_watch_movies.count.should == 2 
+
+      isw = user.i_should_watch_list
+      isw.count.should == 2
+      isw[0].title.should == "Something about Mary"
+      isw[1].title.should == "Star Wars I"
+
+      user.i_have_watched_count.should == 0
+    end
+
+    it "show 0 should watch and 1 have watched" do
+      user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      user.save!
+
+      movie3 = Movie.new(:title => "Star Wars II", :year => "2004", :rotten_tomatoes_id => "3")
+      movie3.save!
+      swm = ShouldWatchMovie.create_swm_by_user_and_movie(user, movie3)
+      swm.user = user
+      swm.watched = true
+      swm.save!
+      user.reload
+
+      user.should_watch_movies.count.should == 1
+
+      isw = user.i_should_watch_list
+      isw.count.should == 0
+
+      ihw = user.i_have_watched_list
+      user.i_have_watched_count.should == 1
+      ihw[0].title.should == "Star Wars II"
     end
   end
 end

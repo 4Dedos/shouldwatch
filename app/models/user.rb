@@ -33,10 +33,20 @@ class User < ActiveRecord::Base
   end
 
   def i_should_watch_list
-    self.should_watch_movies.collect do |swm|
+    self.should_watch_movies.not_watched.collect do |swm|
       swm.movie
     end
     #self.movies_i_should_watch
+  end
+
+  def i_have_watched_list
+    self.should_watch_movies.watched.collect do |ihw|
+      ihw.movie
+    end
+  end
+
+  def i_have_watched_count
+    self.should_watch_movies.watched.count
   end
 
   def recommended_to_me_list
