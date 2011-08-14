@@ -285,7 +285,7 @@ margin-left:120px;
 	-webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	-o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
-	background:rgba(255, 255, 255, 0.8);
+	background: #D7D9DB;
 	color:#333333;
 	text-align:center;
 	width:80px;
@@ -311,9 +311,9 @@ margin-left:120px;
 	-o-border-radius-bottomleft: 2px;
 	border-radius-bottomright: 2px;
 	border-radius-bottomleft: 2px;
-	-moz-transition: All 1s ease;
+	/*-moz-transition: All 1s ease;
 	-webkit-transition: All 1s ease;
-	-0-transition: All 1s ease;
+	-0-transition: All 1s ease;*/
 	overflow:hidden;
 	display: none;
 }
@@ -424,7 +424,13 @@ margin-left:120px;
 /* End Popups*/
 
 /* Movie Results */
-input.ui-autocomplete-loading {
+
+#search_box input {
+  background: none;
+  background-color: white;
+}
+
+#search_box input.text.ui-autocomplete-loading, #search_box input.text.ui-autocomplete-loading:focus {
   background: url("/images/ui_loading.gif") no-repeat scroll right center white;
 }
 
@@ -455,7 +461,7 @@ input.ui-autocomplete-loading {
 #search_results li .suggestionlabel {
     padding: 6px 4px 5px 50px;
 }
-#search_results li a:hover {
+#search_results li a.ui-state-hover, #search_results li a.ui-state-active {
   background-color: #F8F1BE;
 }
 #search_results li a .title {

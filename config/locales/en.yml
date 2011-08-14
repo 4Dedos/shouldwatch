@@ -19,7 +19,7 @@ en:
     welcome_guest:
       popup_title:            'Welcome guest!'
     first_visit:
-      popup_title:                'This is your first visit!'
+      popup_title:                'Welcome!'
       welcome_guest_description:  'ShouldWatch is a productivity tool to help you watch more movies.'
       keep_track:                 'Keep track of the movies that you want to watch.'
       ask_your_friends:           'Ask your friends for recommendations.'
@@ -31,3 +31,4 @@ en:
   movies:
     show:
       recommend_this:         'Recommend this movie'
+

@@ -2,7 +2,10 @@ MovieSearch = {
   initialize: function(){
     $(function() {
       $('#search_handle').click(function(){
-        $('#search_box').show();
+        MovieSearch.showBox();
+      });
+      $('#search_field').blur(function(){
+        MovieSearch.hideBox();
       });
 		  $( "#search_field" ).autocomplete({
 			  source: "/movies/search",
@@ -16,6 +19,8 @@ MovieSearch = {
           $('#search_box').hide();
           $('#rt_id').val(ui.item.id);
           $('#search_box form').submit();
+          $("#search_field").val('');
+          return false;
 			  }
 		  })
       .data( "autocomplete" )._renderItem = function( ul, item ) {
@@ -25,6 +30,15 @@ MovieSearch = {
           .appendTo( ul );
       };
 	  });
+  },
+  showBox: function(){
+    //$('#search_handle').hide();
+    $('#search_box').slideDown();
+    $('#search_field').focus();
+  },
+  hideBox: function(){
+    $('#search_box').slideUp();
+    //$('#search_handle').show();
   }
 };
 
@@ -37,10 +51,10 @@ $(function(){
 });
 
 function initialBind(){
+  // Colorbox
   $(".colorbox-link").colorbox({height: '273px'});
 }
 
-// Colorbox
 $(document).ready(function(){
 
   initialBind();

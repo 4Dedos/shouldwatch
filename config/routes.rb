@@ -2,16 +2,11 @@ Shouldwatch::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#callback'
   match '/signout' => 'sessions#destroy', :as => :signout
 
-
   resources :movies do
     get 'search', :on => :collection
     post 'recommend', :on => :member
     post 'order', :on => :collection
   end
-
-  get 'home/movie'
-  get 'home/first_visit'
-  get 'home/welcome_guest'
 
   resources :watchlist, :only => [:create]
 

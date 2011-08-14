@@ -72,6 +72,7 @@ class User < ActiveRecord::Base
 
     self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
     self.save!
+    self.should_watch_movies.reload
     movie
   end
 

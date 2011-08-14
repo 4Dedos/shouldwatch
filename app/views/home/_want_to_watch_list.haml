@@ -3,6 +3,6 @@
     - if @want_to_watch.blank?
       %li= t('.empty_list')
     = render :partial => '/movies/want_to_watch', :collection => @want_to_watch, :as => :movie
-/  .addMore
-/    %a{:href => "#"} Add more
+  .addMore
+    = link_to_function 'Add more', 'MovieSearch.showBox();'
 

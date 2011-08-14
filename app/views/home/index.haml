@@ -55,12 +55,14 @@
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
         = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
+    .addMore
+      %a{:href => "#"} Get more recommendations from your friends
 
 :javascript
   $(function() {
     $("#movies_i_want_to_watch").sortable({
       cursor: "move",
-      update: function() { 
+      update: function() {
         var movies_order = $(this).sortable('toArray').toString();
         $.post('/movies/order', {movies_order: movies_order});
       }
