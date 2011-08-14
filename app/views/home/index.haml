@@ -14,7 +14,7 @@
           %li= t('.empty_list')
         = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
       .addMore
-        %a{:href => "#"} Ask for recommendations
+        %a{:href => current_user.guest? ? "#" : "/#{current_user.name}"} Ask for recommendations
     .section.recommend
       #recommendSection.anchor
       %h2= t('.i_recommend')
