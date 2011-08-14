@@ -16,7 +16,11 @@ module JavascriptHelper
 
   def page_highlight(element_id, opts = {})
     %{
-      $("##{element_id}").effect("highlight", #{opts.to_json}, 1000);
+      $("##{element_id}").animate({  color: '#FFF' }, 1000);
+      setTimeout(function(){
+        $("##{element_id}").animate({  color: '#DDD' }, 1000);
+      }, 1000);
+
     }.html_safe
   end
 

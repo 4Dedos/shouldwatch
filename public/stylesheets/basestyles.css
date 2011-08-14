@@ -502,7 +502,7 @@ margin-left:120px;
 }
 
 #search_box input.text.ui-autocomplete-loading, #search_box input.text.ui-autocomplete-loading:focus {
-  background: url("/images/ui_loading.gif") no-repeat scroll right center white;
+  background: url("/images/ui_loading.gif") no-repeat scroll 280px center white;
 }
 
 #search_handle {
