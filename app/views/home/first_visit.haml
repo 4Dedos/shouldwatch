@@ -10,8 +10,7 @@
     %li= t('.ask_your_friends')
   - unless params[:s]
     .start
-      = button_to_function t('.start_now'), "$.fn.colorbox.close()"
-
+      = link_to_function t('.start_now'), "$.fn.colorbox.close()"
     .foot
       = t('.i_have_account')
       = link_to t(:sign_in), '/auth/twitter'
