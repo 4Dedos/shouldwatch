@@ -16,30 +16,16 @@
       %li
         = link_to_function t('.recommended_to_me'), "$.scrollTo( '#recommendedSection', 800, {duration:3000} );"
     .userPanel
-      .user
-        %span.pic= image_tag current_user.avatar
-        %span.name= current_user.name
-        = image_tag('baseImages/clip.png', :class => 'clip')
-      .stats
-        .watched
-          %span.amount= @want_to_watch.size
-          %span.when
-            = t('.want_to_watch')
-        .recommended_by_me
-          %span.amount= @i_recommend.size
-          %span.when
-            = t('.i_recommend')
-        .recommended_to_me
-          %span.amount= @recommended_to_me.size
-          %span.when
-            = t('recommended_to_me')
+      = render '/home/user_panel'
     .search
       = render '/home/search'
 .pageContent
   .lists
     .section.wantToWatch
       #wantToWatchSection.anchor
-      %h2= t('.i_want_to_watch')
+      %h2
+        = t('.i_want_to_watch')
+        /%span.warning{:style => display_if(show_warning?)}= '*'
       = render '/home/want_to_watch_list'
     .section.recommend
       #recommendSection.anchor
@@ -72,4 +58,8 @@
 - if @popup_template
   #popup{:style => 'display:none;' }
     = render :template => @popup_template
+
+.footer
+  .inner
+    = link_to 'About', '/about', :class => 'colorbox-link'
 

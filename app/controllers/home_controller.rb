@@ -4,15 +4,8 @@ class HomeController < ApplicationController
     prepare_lists
   end
 
-  def first_visit
+  def about
     render :layout => false
-  end
-
-  def welcome_guest
-    render :layout => false
-  end
-
-  def movie_description
   end
 
 end

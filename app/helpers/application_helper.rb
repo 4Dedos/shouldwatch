@@ -9,5 +9,9 @@ module ApplicationHelper
 
     @current_user
   end
+
+  def show_warning?
+    @current_user.guest? && @current_user.has_movies?
+  end
 end
 

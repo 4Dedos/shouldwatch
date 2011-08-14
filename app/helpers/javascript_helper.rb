@@ -16,7 +16,7 @@ module JavascriptHelper
 
   def page_highlight(element_id, opts = {})
     %{
-      $("##{element_id}").effect("highlight", #{escape_javascript(opts.to_json)}, 1000);
+      $("##{element_id}").effect("highlight", #{opts.to_json}, 1000);
     }.html_safe
   end
 

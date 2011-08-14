@@ -1,3 +1,6 @@
 <%= page_replace('want_to_watch_list', '/home/want_to_watch_list') %>
-<%= page_highlight(dom_id(@movie)) %>
+<%= page_highlight("#{dom_id(@movie)} a.colorbox-link", {:color => '#FDE722'}) %>
+<% if show_warning? %>
+  $('.warning').show();
+<% end %>
 

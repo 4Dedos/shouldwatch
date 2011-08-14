@@ -1,0 +1,22 @@
+.user
+  %span.pic= image_tag current_user.avatar
+  %span.name= current_user.name
+  = image_tag('baseImages/clip.png', :class => 'clip')
+.stats
+  .watched
+    %span.amount= @want_to_watch.size
+    %span.when
+      = t('.want_to_watch')
+  .recommended_by_me
+    %span.amount= @i_recommend.size
+    %span.when
+      = t('.i_recommend')
+  .recommended_to_me
+    %span.amount= @recommended_to_me.size
+    %span.when
+      = t('recommended_to_me')
+.notice
+  - if current_user.guest?
+    .warning{:style => display_if(show_warning?)}
+      = "* Sign In to save your list"
+

@@ -12,6 +12,7 @@ Shouldwatch::Application.routes.draw do
 
   resources :recommendations, :only => [:show], :path => 'r'
 
+  match '/about', :to => "home#about"
   root :to => "home#index"
 
 

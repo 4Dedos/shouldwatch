@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     self.authentication_tokens.empty?
   end
 
+  def has_movies?
+    !self.should_watch_movies.empty? || !self.recommended_to_me.empty?
+  end
+
   def i_should_watch_list
     self.should_watch_movies.collect do |swm|
       swm.movie
