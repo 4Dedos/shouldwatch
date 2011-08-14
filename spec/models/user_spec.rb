@@ -84,7 +84,7 @@ describe User do
 
       list = @user.i_recommend_list
       list.count.should == 1
-      list[0].recommended_to.should == "mati, nico"
+      list[0].recommended_to.should == "mati" # nico not diplayed
     end
 
     it "return one list with accepted recommendation and no accepted" do
@@ -103,7 +103,7 @@ describe User do
       @user.reload
       list = @user.i_recommend_list
       list.count.should == 2
-      list[0].recommended_to.should == "mati, nico"
+      list[0].recommended_to.should == "mati" # nico not diplayed
       list[0].title.should == "Rocky III"
       list[1].recommended_to.should be nil
       list[1].title.should == "The Godfather"
@@ -147,11 +147,18 @@ describe User do
       list[0].recommended_by = "mati"
       list[1].title.should == "The Godfather"
       list[1].year.should == "1978"
-      list[1].recommended_by = "nico, fer"
+      list[1].recommended_by = "nico" # fer not displayed
     end
   end
 
   context "#User methods" do
+    before (:each) do
+      u = User.new
+      u.id = 1
+      u.name = "ShouldWatch"
+      u.save!
+    end
+    
     it "should return an anonymous user" do
       user = User.anonymous
       user.should_not be_nil
@@ -286,7 +293,7 @@ describe User do
       @user.reload
       list = @user.recommended_to_me_list
       list.count.should == 1
-      list[0].recommended_by.should == "mati, nico"
+      list[0].recommended_by.should == "mati" # nico not displayed
     end
 
   end

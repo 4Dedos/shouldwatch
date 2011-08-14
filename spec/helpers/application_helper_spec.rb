@@ -4,6 +4,10 @@ describe ApplicationHelper do
   context "#CurrentUser" do
     before :each do
       @user = User.create(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      u = User.new
+      u.id = 1
+      u.name = "ShouldWatch"
+      u.save!
     end
 
     it "should return an anonymous user when the user id is not in the session" do

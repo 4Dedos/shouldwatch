@@ -57,14 +57,14 @@ class User < ActiveRecord::Base
   def recommended_to_me_list
     recommended = self.recommended_to_me.not_added
     recommended.group_by(&:movie).collect do |movie, rtm|
-      movie.recommended_by = rtm.map(&:user_origin).map(&:name).join(', ')
+      movie.recommended_by = rtm.map(&:user_origin).map(&:name)[0]
       movie
     end
   end
 
   def i_recommend_list
     recomm1 = self.i_recommend.group_by(&:movie).collect do |movie, ir|
-      movie.recommended_to = ir.map(&:user_destination).map(&:name).join(', ')
+      movie.recommended_to = ir.map(&:user_destination).map(&:name)[0]
       movie
     end
 
