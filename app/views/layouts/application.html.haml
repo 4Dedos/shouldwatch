@@ -14,8 +14,9 @@
   %body
     .header
       .inner
-        .shouldWatch
-          %h1 Should Watch
+        = link_to "/" do
+          .shouldWatch
+            %h1 Should Watch
         .logIn
           %p
             - if current_user.guest?
