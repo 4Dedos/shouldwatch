@@ -11,12 +11,14 @@ class Movie < ActiveRecord::Base
       raise "There was a type error on the returned result set."
     end
 
-    movies.collect{|m| {
-      :id => m.id,
-      :title => m.title,
-      :year => ("(#{m.year})" if m.year),
-      :image => m.posters.thumbnail,
-      :detail => 'Details...'}}
+    movies.collect do |m|
+      detail = m.abridged_cast[0..2].map(&:name).join(', ') if !m.abridged_cast.blank?
+      { :id => m.id,
+       :title => m.title,
+       :year => ("(#{m.year})" if m.year),
+       :image => m.posters.thumbnail,
+       :detail => detail}
+    end
   end
 
   def self.find_or_create_by_rt_id(rotten_tomatoes_id)

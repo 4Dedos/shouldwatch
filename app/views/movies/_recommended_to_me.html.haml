@@ -2,4 +2,6 @@
   = link_to movie.title, movie, :class => 'colorbox-link'
   %span{ :class => "to" }
     = recommended_by(movie.recommended_by) if !movie.recommended_by.blank?
+    = link_to image_tag("accept.gif"), watch_this_movie_path(movie), :title => 'Accept Recommendation'
+    = link_to image_tag("cancel.png"), movie, :method => :delete, :title => 'Remove'
 
