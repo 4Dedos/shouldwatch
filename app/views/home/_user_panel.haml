@@ -4,11 +4,11 @@
   = image_tag('baseImages/clip.png', :class => 'clip')
 .stats
   .watched
-    %span.amount= @count_of_watched_movies
+    %span#watched_count.amount= @count_of_watched_movies
     %span.when
       = t('.watched')
   .want_to_watch
-    %span.amount= @want_to_watch_count
+    %span#want_to_watch_count.amount= @want_to_watch_count
     %span.when
       = t('.want_to_watch')
   .recommended_to_me
@@ -16,7 +16,7 @@
     %span.when
       = t('recommended_to_me')
   .recommended_by_me
-    %span.amount= @i_recommend.size
+    %span#i_recommend_count.amount= @i_recommend.size
     %span.when
       = t('.i_recommend')
 .notice

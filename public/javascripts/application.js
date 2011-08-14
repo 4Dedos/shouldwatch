@@ -65,6 +65,7 @@ $(function(){
 function initialBind(){
   // Colorbox
   $(".colorbox-link").colorbox({opacity:'0.55', height: '500px'});
+  WatchList.sortable();
 }
 
 function scrollToSection(sectionId) {

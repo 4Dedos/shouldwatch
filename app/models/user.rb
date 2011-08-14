@@ -89,7 +89,16 @@ class User < ActiveRecord::Base
     return if movie.blank?
     return if self.i_should_watch_list.include?(movie)
 
-    #self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
+    if self.i_have_watched_list.include?(movie)
+      swm = self.should_watch_movies.where(:movie_id => movie.id).first
+      swm.watched = false
+      swm.position = self.i_should_watch_list.count + 2 
+      swm.save!
+      
+      self.should_watch_movies.reload
+      return movie
+    end
+
     self.should_watch_movies << ShouldWatchMovie.create_swm_by_user_and_movie(self, movie)
     self.save!
     self.should_watch_movies.reload

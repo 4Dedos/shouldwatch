@@ -1,4 +1,6 @@
 <%= page_replace('want_to_watch_list', '/home/want_to_watch_list') %>
+<%= page_replace_html('watched_count', {:text => current_user.i_have_watched_count})%>
+<%= page_replace_html('want_to_watch_count', {:text => current_user.i_should_watch_list.size})%>
 <%= page_highlight("#{dom_id(@movie)} a.colorbox-link", {:color => '#FDE722'}) %>
 <% if show_warning? %>
   $('.warning').show();

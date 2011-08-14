@@ -435,6 +435,31 @@ describe User do
       user.i_have_watched_count.should == 1
       ihw[0].title.should == "Star Wars II"
     end
+
+    it "change movie from watched to no-watched" do
+      user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      user.save!
+
+      movie3 = Movie.new(:title => "Star Wars II", :year => "2004", :rotten_tomatoes_id => "3")
+      movie3.save!
+      swm = ShouldWatchMovie.create_swm_by_user_and_movie(user, movie3)
+      swm.user = user
+      swm.watched = true
+      swm.save!
+      user.reload
+
+      user.should_watch_movies.count.should == 1
+
+      user.i_should_watch_list.count.should == 0
+      user.i_have_watched_list.count.should == 1
+
+      user.add_to_watch_list("3")
+
+      user.should_watch_movies.count.should == 1
+
+      user.i_should_watch_list.count.should == 1
+      user.i_have_watched_list.count.should == 0
+    end
   end
 end
 
