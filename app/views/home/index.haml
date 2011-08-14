@@ -47,15 +47,14 @@
       %ul
         - if @i_recommend.blank?
           %li= t('.empty_list')
-        = render @i_recommend
+        = render :partial => '/movies/i_recommend', :collection => @i_recommend, :as => :movie
     .section.recommended
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
       %ul
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
-        = render @recommended_to_me
-
+        = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
 
 - if @popup_template
   #popup{:style => 'display:none;' }

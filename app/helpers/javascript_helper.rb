@@ -3,12 +3,14 @@ module JavascriptHelper
   def page_replace(element_id, *render_attr)
     %{
       $("##{element_id}").replaceWith("#{escape_javascript(render *render_attr) }");
+      initialBind();
     }.html_safe
   end
 
   def page_replace_html(element_id, *render_attr)
     %{
       $("##{element_id}").html("#{escape_javascript(render *render_attr) }");
+      initialBind();
     }.html_safe
   end
 

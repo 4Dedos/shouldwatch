@@ -36,10 +36,14 @@ $(function(){
 	$("input, textarea, select, button").uniform();
 });
 
+function initialBind(){
+  $(".colorbox-link").colorbox({height: '273px'});
+}
+
 // Colorbox
 $(document).ready(function(){
 
-  $(".colorbox-link").colorbox({height: '273px'});
+  initialBind();
 
   $(".header .menu li").click(function(){
     $(".header .menu li.selected").removeClass('selected');
