@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentication_tokens
-  has_many :should_watch_movies, :order => 'id DESC'
+  has_many :should_watch_movies, :order => 'position ASC'
   has_many :recommendations
   has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id"
   has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id"
@@ -74,7 +74,8 @@ class User < ActiveRecord::Base
     return if movie.blank?
     return if self.i_should_watch_list.include?(movie)
 
-    self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
+    #self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
+    self.should_watch_movies << ShouldWatchMovie.create_swm_by_user_and_movie(self, movie)
     self.save!
     self.should_watch_movies.reload
     movie
@@ -91,6 +92,17 @@ class User < ActiveRecord::Base
     ar.user_destination = self
     ar.added = false
     ar.save!
+  end
+
+  def reorder_watch_list(movie_list)
+    self.should_watch_movies.each do |swm|
+      position = movie_list.index(swm.movie.id.to_s)
+      next if position.nil?
+      swm.position = position + 1
+      swm.save!
+    end
+    self.save!
+    self.reload
   end
 
 end

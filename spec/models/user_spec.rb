@@ -290,5 +290,67 @@ describe User do
     end
 
   end
+
+  context "#Update should watch list" do
+    before (:each) do
+      @user = User.new(:name => "gianu", :avatar => "http://www.google.com", :email => "none@noneland.com")
+      @user.save!
+      @movie1 = Movie.new(:title => "Something about Mary", :year => "1998", :rotten_tomatoes_id => "1")
+      @movie1.save!
+      @movie2 = Movie.new(:title => "Star Wars I", :year => "2001", :rotten_tomatoes_id => "2")
+      @movie2.save!
+      @movie3 = Movie.new(:title => "Star Wars II", :year => "2004", :rotten_tomatoes_id => "3")
+      @movie3.save!
+      @user.add_to_watch_list("1")
+      @user.add_to_watch_list("2")
+      @user.add_to_watch_list("3")
+      @user.reload
+    end
+
+    it "reorder the list" do
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Something about Mary"
+      list[1].title.should == "Star Wars I"
+      list[2].title.should == "Star Wars II"
+
+      @user.reorder_watch_list(["#{@movie2.id}", "#{@movie1.id}", "#{@movie3.id}"])
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Star Wars I"
+      list[1].title.should == "Something about Mary"
+      list[2].title.should == "Star Wars II"
+    end
+
+    it "leave the order untouched, no changed" do
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Something about Mary"
+      list[1].title.should == "Star Wars I"
+      list[2].title.should == "Star Wars II"
+
+      @user.reorder_watch_list(["#{@movie1.id}", "#{@movie2.id}", "#{@movie3.id}"])
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Something about Mary"
+      list[1].title.should == "Star Wars I"
+      list[2].title.should == "Star Wars II"
+    end
+
+    it "ignore unexisting id" do
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Something about Mary"
+      list[1].title.should == "Star Wars I"
+      list[2].title.should == "Star Wars II"
+
+      @user.reorder_watch_list(["#{@movie2.id}", "#{@movie1.id}", "8829928827","#{@movie3.id}"])
+      list = @user.i_should_watch_list
+      list.count.should == 3
+      list[0].title.should == "Star Wars I"
+      list[1].title.should == "Something about Mary"
+      list[2].title.should == "Star Wars II"
+    end
+  end
 end
 

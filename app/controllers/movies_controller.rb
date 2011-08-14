@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
       movie_id.split('_')[1]
     end
 
-    #current_user.update_should_watch_list(new_order)
+    current_user.reorder_watch_list(new_order)
     render :json => {:ok => "true"}
   end
 end
