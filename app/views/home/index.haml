@@ -8,7 +8,7 @@
       = render '/home/want_to_watch_list'
     .section.recommended
       #recommendedSection.anchor
-      %h2= t('.my_friends_recommends')
+      %h2= t('.my_friends_recommend')
       %ul
         - if @recommended_to_me.blank?
           %li= t('.empty_list')

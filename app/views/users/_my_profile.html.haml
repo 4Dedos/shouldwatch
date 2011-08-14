@@ -1,0 +1,9 @@
+.my-profile-msg
+  %h2
+    This is your public profile
+  %p
+    You can ask your friends for recommendations by sharing your profile URL:
+
+  .url
+    = link_to user_profile_url(current_user)
+

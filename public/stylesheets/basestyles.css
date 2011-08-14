@@ -607,3 +607,32 @@ margin-left:120px;
   right: 20px;
 }
 
+.my-profile-msg {
+	background:#EEEEEE;
+	color:#333333;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin: 0 auto 25px;
+    width: 500px;
+
+}
+
+.my-profile-msg h2 {
+	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.2);
+	margin-bottom: 0px;
+}
+
+.my-profile-msg .url {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-size: 22px;
+  padding: 5px;
+  text-align: center;
+}
+
+.my-profile-msg .url a, .my-profile-msg .url a:visited {
+    color: black;
+    outline: medium none;
+    text-decoration: none;
+}
+

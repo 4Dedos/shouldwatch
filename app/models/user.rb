@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     should_watch_user = User.find(1)
     should_watch_user.recommendations.each do |recommendation|
       anonymous_user.accept_recommendation(recommendation)
-    end 
+    end
     anonymous_user.reload
   end
 
@@ -92,9 +92,9 @@ class User < ActiveRecord::Base
     if self.i_have_watched_list.include?(movie)
       swm = self.should_watch_movies.where(:movie_id => movie.id).first
       swm.watched = false
-      swm.position = self.i_should_watch_list.count + 2 
+      swm.position = self.i_should_watch_list.count + 2
       swm.save!
-      
+
       self.should_watch_movies.reload
       return movie
     end
@@ -129,5 +129,8 @@ class User < ActiveRecord::Base
     self.reload
   end
 
+  def to_param
+    self.name
+  end
 end
 

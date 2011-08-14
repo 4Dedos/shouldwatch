@@ -12,7 +12,6 @@ Shouldwatch::Application.routes.draw do
   resources :watchlist, :only => [:create]
 
   resources :recommendations, :only => [:show, :create], :path => 'r'
-  resources :users, :only => [:show], :path => 'u'
 
   match '/welcome', :to => "home#welcome"
   match '/about', :to => "home#about"
@@ -22,6 +21,6 @@ Shouldwatch::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  match '/:id', :to => "users#show"
+  match '/:id', :to => "users#show", :as => 'user_profile'
 end
 
