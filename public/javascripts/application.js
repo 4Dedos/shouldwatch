@@ -35,7 +35,7 @@ $(function(){
 // Colorbox
 $(document).ready(function(){
 
-  $(".colorbox-link").colorbox({height: '400px'});
+  $(".colorbox-link").colorbox({height: '273px'});
 
   $(".header .menu li").click(function(){
     $(".header .menu li.selected").removeClass('selected');
