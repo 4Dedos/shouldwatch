@@ -430,9 +430,17 @@ margin-left:120px;
   text-align: right;
 }
 
-.popupContainer .recommendation_link {
-  height: 32px;
-  display: none;
+.popupContainer #recommendation_link .content {
+  width: 98%;
+  padding:5px;
+  margin: 5px 0;
+  text-align:center;
+}
+
+.popupContainer #recommendation_link input {
+  width: 68%;
+  text-align:center;
+  margin:0;
 }
 
 /* End MoviePopUp */

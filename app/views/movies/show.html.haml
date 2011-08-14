@@ -16,7 +16,7 @@
       Cast
       %p= @movie.cast
     %p= @movie.plot
-  .recommendation_link
+  #recommendation_link
   .actions
     = form_tag recommend_movie_path(@movie), :remote => true do
       = submit_tag t('.recommend_this')
