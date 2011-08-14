@@ -1,0 +1,8 @@
+#want_to_watch_list
+  %ul
+    - if @want_to_watch.blank?
+      %li= t('.empty_list')
+    = render @want_to_watch
+/  .addMore
+/    %a{:href => "#"} Add more
+

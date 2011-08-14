@@ -40,26 +40,21 @@
     .section.wantToWatch
       #wantToWatchSection.anchor
       %h2= t('.i_want_to_watch')
-      %ul
-        - if @want_to_watch.blank?
-          %li= t('.empty_list')
-        = render :partial => '/movies/want_to_watch', :collection => @want_to_watch, :as => :movie
-      .addMore
-        %a{:href => "#"} Add more
-    .section.recomended
+      = render '/home/want_to_watch'
+    .section.recommend
       #recommendSection.anchor
       %h2= t('.i_recommend')
       %ul
         - if @i_recommend.blank?
           %li= t('.empty_list')
-        = render :partial => '/movies/i_recommend', :collection => @i_recommend, :as => :movie
-    .section.recomend
+        = render @i_recommend
+    .section.recommended
       #recommendedSection.anchor
       %h2= t('.my_friends_recommends')
       %ul
         - if @recommended_to_me.blank?
           %li= t('.empty_list')
-        = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
+        = render @recommended_to_me
 
 
 - if @popup_template

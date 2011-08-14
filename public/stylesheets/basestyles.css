@@ -321,8 +321,8 @@ margin-left:120px;
 	height:100px;
 }*/
 .search .formContainer input{
-	margin:30px;
-	width:220px;
+	margin:20px;
+	width:300px;
 	height:30px;
 	line-height:30px;
 }
@@ -424,6 +424,10 @@ margin-left:120px;
 /* End Popups*/
 
 /* Movie Results */
+input.ui-autocomplete-loading {
+  background: url("/images/ui_loading.gif") no-repeat scroll right center white;
+}
+
 #search_handle {
   cursor: pointer;
 }
@@ -433,10 +437,10 @@ margin-left:120px;
 #search_results li {
   list-style: none;
   background-color: white;
-  border: 1px solid #CCCCCC;
   font-size: 13px;
   overflow: hidden;
   padding: 0;
+  width: 300px;
 }
 #search_results li a {
     border-bottom: 1px solid #EFEFEF;
@@ -474,3 +478,4 @@ margin-left:120px;
     height: 54px;
 }
 /* End MovieResults */
+

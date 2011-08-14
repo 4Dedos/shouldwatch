@@ -8,7 +8,11 @@ MovieSearch = {
 			  source: "/movies/search",
         appendTo: "#search_results",
 			  minLength: 1,
-			  select: function( event, ui ) {
+        focus: function (event, ui) {
+          $("#search_field").val(ui.item.title);
+          return false;
+        },
+        select: function( event, ui ) {
           $('#search_box').hide();
           $('#rt_id').val(ui.item.id);
           $('#search_box form').submit();

@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   attr_accessor :recommended_by, :recommended_to
 
-  def self.search_by_name(name, limit = 10)
+  def self.search_by_name(name, limit = 6)
     movies = RottenMovie.find(:title => name, :limit => limit)
     if(movies.is_a? Array)
       movies.map { |movie| [movie.id, "#{movie.title} (#{movie.year})"] }

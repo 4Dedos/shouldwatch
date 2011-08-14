@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   has_many :authentication_tokens
-  has_many :should_watch_movies
+  has_many :should_watch_movies, :order => 'id DESC'
   has_many :recommendations
   has_many :i_recommend, :class_name => "AcceptedRecommendation", :foreign_key => "user_origin_id"
   has_many :recommended_to_me, :class_name => "AcceptedRecommendation", :foreign_key => "user_destination_id"
+  #has_many :movies_i_should_watch, :class_name => "Movie", :through => :should_watch_movies, :source => :movie
 
   def update_with_omniauth(auth)
     self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
@@ -28,12 +29,10 @@ class User < ActiveRecord::Base
   end
 
   def i_should_watch_list
-    ret = []
-    self.should_watch_movies.each do |swm|
-      ret << swm.movie
+    self.should_watch_movies.collect do |swm|
+      swm.movie
     end
-
-    return ret
+    #self.movies_i_should_watch
   end
 
   def recommended_to_me_list
@@ -41,7 +40,7 @@ class User < ActiveRecord::Base
     recommended.group_by(&:movie).collect do |movie, rtm|
       movie.recommended_by = rtm.map(&:user_origin).map(&:name).join(', ')
       movie
-    end 
+    end
   end
 
   def i_recommend_list
@@ -49,30 +48,31 @@ class User < ActiveRecord::Base
       movie.recommended_to = ir.map(&:user_destination).map(&:name).join(', ')
       movie
     end
-  
+
     recomm2 = self.recommendations.map(&:movie)
 
     recomm1 | recomm2
   end
-  
+
   def hit!
     self.hits = (self.hits || 0) + 1
     self.save
   end
-  
+
   def hits
     read_attribute(:hits) || 0
   end
-  
+
 
   def add_to_watch_list(rotten_tomatoes_id)
     movie = Movie.find_or_create_by_rt_id(rotten_tomatoes_id)
-    
+
     return if movie.blank?
     return if self.i_should_watch_list.include?(movie)
 
     self.should_watch_movies << ShouldWatchMovie.new(:movie => movie)
     self.save!
+    movie
   end
 
   def accept_recommendation(recommendation)
