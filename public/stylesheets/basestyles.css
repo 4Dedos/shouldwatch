@@ -73,6 +73,10 @@ body{
 	font-size:14px;
 }
 
+h1, h2, h3, h4, h5, h6{
+  font-weight: normal!important;
+}
+
 h1, h2, h3, h4, h5, h6, strong, em, a{
 	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.8);
 }
@@ -175,7 +179,7 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 	padding:20px;
 	position:absolute;
 	right:0px;
-	top:20px;
+	top:35px;
 	-moz-transform:rotate(5deg);
 	-webkit-transform:rotate(5deg);
 	-o-transform:rotate(5deg);
@@ -379,6 +383,9 @@ margin-left:120px;
 	text-align:right;
 	background:rgba(0 ,0 ,0 , 0.1);
 }
+.lists a {
+  color: #DDDDDD;
+}
 /* End Listas */
 /* MoviePopUp */
 .popupContainer{
@@ -388,7 +395,21 @@ margin-left:120px;
 	overflow:hidden;
 	padding:20px;
 }
+#cboxLoadedContent {
+  overflow-x: hidden;
+}
+.popupContainer h1,
+.popupContainer h2,
+.popupContainer h3,
+.popupContainer h4,
+.popupContainer h5,
+.popupContainer h6,
+.popupContainer strong,
+.popupContainer em,
+.popupContainer a{
+	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.2);
 
+}
 .popupContainer .pic{
 	width:170px;
 	float:left;
@@ -493,4 +514,43 @@ margin-left:120px;
     height: 54px;
 }
 /* End MovieResults */
+
+.about a, .about a:visited {
+  color: #990000;
+}
+.about h1{
+  border-bottom: 1px solid #333333;
+}
+
+.about p {
+  font-size: 18px;
+}
+
+.about .left {
+  width: 300px;
+}
+
+.about .right {
+  margin-left: 300px;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+}
+
+.about h2 a{
+  color:#333333;
+  display:block;
+  text-decoration:none;
+  overflow:hidden;
+  padding-left:20px;
+}
+.about h2 a img{
+  float:left;
+  margin-right:20px;
+}
+.about h2 a .name{
+  display:block;
+  font-size:16px;
+}
 

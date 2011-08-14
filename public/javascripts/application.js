@@ -64,8 +64,7 @@ $(function(){
 
 function initialBind(){
   // Colorbox
-  $(".colorbox-link").colorbox({height: '273px'});
-  WatchList.sortable();
+  $(".colorbox-link").colorbox({opacity:'0.55', height: '500px'});
 }
 
 $(document).ready(function(){
