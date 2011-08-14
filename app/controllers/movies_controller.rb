@@ -21,5 +21,11 @@ class MoviesController < ApplicationController
 
     redirect_to root_path, :notice => "The movie was removed."
   end
+  
+  def recommend
+    @movie = Movie.find(params[:id])
+    @recommendation = @movie.create_recommendation(current_user)
+  end
+
 end
 

@@ -16,7 +16,10 @@
       Cast
       %p= @movie.cast
     %p= @movie.plot
-
+  .recommendation_link
   .actions
-    = link_to "remove", @movie, :confirm => 'Are you sure you want to remove this movie?', :method => :delete
+    = form_tag recommend_movie_path(@movie), :remote => true do
+      = submit_tag t('.recommend_this')
 
+:javascript
+  $("input, textarea, select, button").uniform();

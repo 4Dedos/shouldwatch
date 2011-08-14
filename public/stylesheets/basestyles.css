@@ -379,6 +379,7 @@ margin-left:120px;
 	overflow:hidden;
 	padding:20px;
 }
+
 .movieContainer .pic{
 	width:170px;
 	float:left;
@@ -390,6 +391,16 @@ margin-left:120px;
 	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.2);
 	margin-bottom: 0px;
 }
+
+.movieContainer .actions {
+  text-align: right;
+}
+
+.movieContainer .recommendation_link {
+  height: 32px;
+  display: none;
+}
+
 /* End MoviePopUp */
 
 

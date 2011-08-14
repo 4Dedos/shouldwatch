@@ -3,6 +3,7 @@
 
 en:
   sign_in:                   'Sign in'
+
   home: #Controller
     index: #View
       i_recommend:            'I Recommend'
@@ -27,4 +28,6 @@ en:
       i_have_account:             "I've already have an account,"
     movie_description:
       popup_title:                'Movie description'
-
+  movies:
+    show:
+      recommend_this:         'Recommend this movie'

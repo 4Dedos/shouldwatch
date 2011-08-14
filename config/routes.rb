@@ -5,6 +5,7 @@ Shouldwatch::Application.routes.draw do
 
   resources :movies do
     get 'search', :on => :collection
+    post 'recommend', :on => :member
   end
 
   get 'home/movie'
@@ -13,8 +14,7 @@ Shouldwatch::Application.routes.draw do
 
   resources :watchlist, :only => [:create]
 
-  resources :recommendations, :only => [:show]
-  match '/r/:id' => 'recommendations#show'
+  resources :recommendations, :only => [:show], :path => 'r'
 
   root :to => "home#index"
 
