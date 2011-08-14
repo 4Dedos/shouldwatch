@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :count_hit
   before_filter :set_popup_template
 
-
   private
 
     def count_hit
