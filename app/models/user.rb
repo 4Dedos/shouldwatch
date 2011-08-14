@@ -45,10 +45,14 @@ class User < ActiveRecord::Base
   end
 
   def i_recommend_list
-    self.i_recommend.group_by(&:movie).collect do |movie, ir|
+    recomm1 = self.i_recommend.group_by(&:movie).collect do |movie, ir|
       movie.recommended_to = ir.map(&:user_destination).map(&:name).join(', ')
       movie
     end
+  
+    recomm2 = self.recommendations.map(&:movie)
+
+    recomm1 | recomm2
   end
   
   def hit!

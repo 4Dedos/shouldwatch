@@ -86,6 +86,28 @@ describe User do
       list.count.should == 1
       list[0].recommended_to.should == "mati, nico"
     end
+
+    it "return one list with accepted recommendation and no accepted" do
+      accepted_recommendation = AcceptedRecommendation.new
+      accepted_recommendation.user_origin = @user
+      accepted_recommendation.user_destination = @user3
+      accepted_recommendation.movie = @movie
+      accepted_recommendation.added = false
+      accepted_recommendation.save!
+      @user.i_recommend_list.count.should == 1
+
+      movie2 = Movie.new(:title => "The Godfather", :year => "1978")
+      movie2.save!
+      movie2.create_recommendation(@user)
+
+      @user.reload
+      list = @user.i_recommend_list
+      list.count.should == 2
+      list[0].recommended_to.should == "mati, nico"
+      list[0].title.should == "Rocky III"
+      list[1].recommended_to.should be nil
+      list[1].title.should == "The Godfather"
+    end
   end
   
   context "#My friends recommend" do
