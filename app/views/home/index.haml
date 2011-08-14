@@ -31,3 +31,10 @@
   #popup{:style => 'display:none;' }
     = render :template => @popup_template
 
+- if params[:watched]
+  %a{:href => "/movies/#{params[:watched]}?just_watched=true", :class => "colorbox-link", :id => "movie_trigger"}
+  :javascript
+    $(function(){
+      $("#movie_trigger").trigger('click');
+    });
+

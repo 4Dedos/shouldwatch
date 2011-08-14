@@ -31,14 +31,14 @@ class MoviesController < ApplicationController
     current_user.reorder_watch_list(new_order)
     render :json => {:ok => "true"}
   end
-  
+
   def reject_recommendation
     @recomendation_to_me = current_user.recommended_to_me.not_added.first(:conditions => {:movie_id => params[:id]})
     @movie = @recomendation_to_me.movie
     @recomendation_to_me.destroy
     @recommended_to_me = current_user.recommended_to_me_list
   end
-  
+
   def accept_recommendation
     @recomendation_to_me = current_user.recommended_to_me.not_added.first(:conditions => {:movie_id => params[:id]})
     if @recomendation_to_me
@@ -53,8 +53,8 @@ class MoviesController < ApplicationController
   def watch_this
     @should_watch_movie = current_user.should_watch_movies.where(:movie_id => params[:id]).first
     @should_watch_movie.update_attribute(:watched, true)
-
-    redirect_to root_path, :notice => "Congratulations! You have watched #{@should_watch_movie.movie.title}."
+    @trigger_movie = @should_watch_movie.movie
+    redirect_to root_path(:watched => @trigger_movie.id), :notice => "Congratulations! You have watched #{@should_watch_movie.movie.title}."
   end
 end
 
