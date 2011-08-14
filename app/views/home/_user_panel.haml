@@ -1,5 +1,6 @@
 .user
-  %span.pic= image_tag current_user.avatar
+  %span.pic
+    = link_to_if(!current_user.guest?, image_tag(current_user.avatar), "/#{current_user.name}") { image_tag current_user.avatar }
   %span.name
     = link_to_if(!current_user.guest?, "#{current_user.name}", "/#{current_user.name}") { current_user.name }
   = image_tag('baseImages/clip.png', :class => 'clip')

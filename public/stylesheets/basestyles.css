@@ -216,6 +216,11 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 	padding:0 10px;
 
 }
+
+.userPanel .user .name a {
+        color: black;
+}
+
 .userPanel .user .clip{
 	position:absolute;
 	top:-15px;
