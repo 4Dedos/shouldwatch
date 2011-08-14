@@ -6,7 +6,7 @@
       %span.extra= "${year}"
       %div.detail= "${detail}"
 #search_box.formContainer
-  = form_tag '/watchlist', :method => :post, :remote => true do
+  = form_for Recommendation.new do
     - if @profile_user
       = hidden_field_tag :profile_user, @profile_user.id
     = text_field_tag :query, nil, :id => 'search_field'

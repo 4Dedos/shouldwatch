@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 	left:280px;
 	bottom:15px;
 }
-.header .menu li a{
+.header .menu li a, .header .menu li{
 	color:#DDDDDD;
 	text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.8);
 	font-family: 'Kreonbold', serif;

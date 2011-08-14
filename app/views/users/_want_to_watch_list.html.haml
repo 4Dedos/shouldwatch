@@ -1,0 +1,9 @@
+#want_to_watch_list
+  %ul{:id => "movies_i_want_to_watch"}
+    - if @want_to_watch.blank?
+      %li= t('.empty_list')
+    - else
+      = render :partial => '/movies/want_to_watch', :collection => @want_to_watch, :as => :movie
+  .addMore
+    = link_to_function 'Recommend', 'MovieSearch.showBox();'
+

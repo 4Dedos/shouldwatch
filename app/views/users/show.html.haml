@@ -1,0 +1,17 @@
+.pageContent
+  .lists
+    .section.wantToWatch
+      #wantToWatchSection.anchor
+      %h2
+        = @profile_user.name
+        = t('.want_to_watch')
+        /%span.warning{:style => display_if(show_warning?)}= '*'
+      = render 'want_to_watch_list'
+    .section.recommended
+      #recommendedSection.anchor
+      %h2= t('.my_friends_recommends')
+      %ul{:id => 'recommended-lists'}
+        - if @recommended_to_me.blank?
+          %li= t('.empty_list')
+        = render :partial => '/movies/recommended_to_me', :collection => @recommended_to_me, :as => :movie
+

@@ -8,7 +8,7 @@
     %span.when
       = t('.watched')
   .want_to_watch
-    %span.amount= @want_to_watch.size
+    %span.amount= @want_to_watch_count
     %span.when
       = t('.want_to_watch')
   .recommended_by_me
@@ -16,7 +16,7 @@
     %span.when
       = t('.i_recommend')
   .recommended_to_me
-    %span.amount= @recommended_to_me.size
+    %span.amount= @recommended_to_me_count
     %span.when
       = t('recommended_to_me')
 .notice
