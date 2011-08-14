@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110814165855) do
+ActiveRecord::Schema.define(:version => 20110814215822) do
 
   create_table "accepted_recommendations", :force => true do |t|
     t.integer  "user_origin_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110814165855) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
+    t.string   "secret"
   end
 
   create_table "movies", :force => true do |t|

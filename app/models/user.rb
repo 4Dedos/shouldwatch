@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
   #has_many :movies_i_should_watch, :class_name => "Movie", :through => :should_watch_movies, :source => :movie
 
   def update_with_omniauth(auth)
-    self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"])
+    self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"], :token => auth['credentials']['token'], :secret => auth['credentials']['secret'])
     self.name = auth["user_info"]["nickname"]
     self.avatar = auth["user_info"]["image"].gsub('normal', 'bigger') if auth["user_info"]["image"]
+    debugger
     self.save
     self
   end
