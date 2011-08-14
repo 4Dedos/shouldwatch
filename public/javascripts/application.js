@@ -54,6 +54,21 @@ WatchList = {
   }
 };
 
+Twitter = {
+  init: function () {
+          $("#twitter").getTwitter({
+              userName: "shouldwatch",
+              numTweets: 1,
+              loaderText: "Loading Tweets...",
+              slideIn: false,
+              showHeading: false,
+              headingText: "Our Tweets",
+              showProfileLink: false,
+              showTimestamp: true
+          });
+        }
+};
+
 // Popups Callbacks functions
 function callback_on_recommendation_close() {}
 
@@ -66,6 +81,7 @@ function initialBind(){
   // Colorbox
   $(".colorbox-link").colorbox({opacity:'0.55', height: '500px'});
   WatchList.sortable();
+  Twitter.init();
 }
 
 function scrollToSection(sectionId) {
