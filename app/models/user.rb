@@ -21,7 +21,12 @@ class User < ActiveRecord::Base
   end
 
   def self.anonymous
-    self.create(:name => 'anonymous', :avatar => 'anonymous.jpg ')
+    anonymous_user = self.create(:name => 'anonymous', :avatar => 'anonymous.jpg ')
+    should_watch_user = User.find(1)
+    should_watch_user.recommendations.each do |recommendation|
+      anonymous_user.accept_recommendation(recommendation)
+    end 
+    anonymous_user.reload
   end
 
   def guest?
