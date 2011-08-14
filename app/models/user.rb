@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
     self.authentication_tokens.build(:provider => auth["provider"], :uid => auth["uid"], :token => auth['credentials']['token'], :secret => auth['credentials']['secret'])
     self.name = auth["user_info"]["nickname"]
     self.avatar = auth["user_info"]["image"].gsub('normal', 'bigger') if auth["user_info"]["image"]
-    debugger
     self.save
     self
   end
