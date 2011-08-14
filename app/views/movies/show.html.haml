@@ -1,9 +1,10 @@
 .popupContainer.movie
-  = render 'movies/movie_info'
+  .info
+    = render 'movies/movie_info'
   #recommendation_link
-  .actions
-    = form_tag recommend_movie_path(@movie), :remote => true do
-      = submit_tag t('.recommend_this')
+    .actions
+      = form_tag recommend_movie_path(@movie), :remote => true do
+        = submit_tag t('.recommend_this')
 
 :javascript
   $("input, textarea, select, button").uniform();

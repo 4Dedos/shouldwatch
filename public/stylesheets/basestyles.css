@@ -454,6 +454,18 @@ margin-left:120px;
   margin:0;
 }
 
+.movie .info {
+  overflow: hidden;
+}
+
+.movie .recommendation {
+  clear: both;
+  border: 1px solid;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
 /* End MoviePopUp */
 
 
