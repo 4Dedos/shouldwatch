@@ -2,7 +2,7 @@
   %span
     %input#recommendation_link.text{:type => 'text', :value => recommendation_url(recommendation_link),
       :onFocus => "this.select()" }
-  %span
+  .twitter-share-link
     %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
     %a.twitter-share-button{:href => "http://twitter.com/share?text=I%20recommend%20this%20movie&url=#{recommendation_url(recommendation_link)}&via=should_watch&count=none"} Tweet
 
