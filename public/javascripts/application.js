@@ -28,9 +28,9 @@ MovieSearch = {
 function callback_on_recommendation_close() {}
 
 //Uniforms
-	$(function(){
-		$("input, textarea, select, button").uniform();
-	});
+$(function(){
+	$("input, textarea, select, button").uniform();
+});
 
 // Colorbox
 $(document).ready(function(){
