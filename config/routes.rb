@@ -4,6 +4,7 @@ Shouldwatch::Application.routes.draw do
 
   resources :movies do
     get 'search', :on => :collection
+    get 'watch_this', :on => :member
     post 'recommend', :on => :member
     post 'order', :on => :collection
   end

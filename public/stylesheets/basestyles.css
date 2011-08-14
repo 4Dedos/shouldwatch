@@ -228,21 +228,14 @@ margin-left:120px;
 	margin-right:10px;
 }
 
-.userPanel .recommended_by_me .amount {
+.userPanel .recommended_by_me .amount,
+.userPanel .want_to_watch .amount,
+.userPanel .recommended_to_me .amount {
   font-size: 28px;
   color:#990000;
   line-height:18px;
   float: left;
   margin-right:10px;
-  margin-left: 22px;
-}
-
-.userPanel .recommended_to_me .amount {
-  font-size: 28px;
-  color:#990000;
-  line-height: 18px;
-  float: left;
-  margin-right: 10px;
   margin-left: 22px;
 }
 
@@ -252,12 +245,8 @@ margin-left:120px;
 	padding-top:5px;
 }
 
-.userPanel .recommended_by_me .when {
-        line-height: 12px;
-        font-size: 12px;
-        padding-top: 5px;
-}
-
+.userPanel .recommended_by_me .when,
+.userPanel .want_to_watch .when,
 .userPanel .recommended_to_me .when {
         line-height: 12px;
         font-size: 12px;
