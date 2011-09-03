@@ -49,10 +49,13 @@ Shouldwatch::Application.configure do
   
   config.action_mailer.delivery_method = :sendmail
   
-  config.middleware.use ExceptionNotifier,
-     :email_prefix => "[Shouldwatch Exception] ",
-     :sender_address => %{"Shouldwatch" <notifier@shouldwatch.com>},
-     :exception_recipients => %w{jmrepetti@gmail.com ngaivi@gmail.com fersaenz@gmail.com sgianazza@gmail.com}  
+  config.after_initialize do
+    config.middleware.use ExceptionNotifier,
+       :email_prefix => "[Shouldwatch Exception] ",
+       :sender_address => %{"Shouldwatch" <notifier@shouldwatch.com>},
+       :exception_recipients => %w{jmrepetti@gmail.com ngaivi@gmail.com fersaenz@gmail.com sgianazza@gmail.com}
+    end
+  end
 end
 
 TWITTER_CONSUMER_KEY = 'ATRqLvlKkU5MiEIjszSEYw'
