@@ -62,6 +62,8 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    exception_notification (2.5.2)
+      actionmailer (>= 3.0.4)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
@@ -222,6 +224,7 @@ DEPENDENCIES
   capistrano
   capybara
   cucumber-rails
+  exception_notification
   haml (>= 3.0.0)
   haml-rails
   jquery-rails

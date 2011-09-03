@@ -16,6 +16,8 @@ gem "haml-rails"
 gem "jquery-rails"
 gem "omniauth", "~> 0.2.0"
 
+gem "exception_notification", :require => 'exception_notifier'
+
 
 group :development do
   # DEPLOYMENT
