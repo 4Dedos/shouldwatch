@@ -54,8 +54,8 @@ Shouldwatch::Application.configure do
        :email_prefix => "[Shouldwatch Exception] ",
        :sender_address => %{"Shouldwatch" <notifier@shouldwatch.com>},
        :exception_recipients => %w{jmrepetti@gmail.com ngaivi@gmail.com fersaenz@gmail.com sgianazza@gmail.com}
-    end
   end
+  
 end
 
 TWITTER_CONSUMER_KEY = 'ATRqLvlKkU5MiEIjszSEYw'
