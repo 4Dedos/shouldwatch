@@ -67,7 +67,7 @@ html {
 }
 
 body{
-	background:url(../images/baseImages/texture.png) repeat;
+	background:url(baseImages/texture.png) repeat;
 	min-height:100%;
 	font-family: "Palatino Linotype","Book Antiqua",Palatino,FreeSerif,serif;
 	font-size:14px;
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6, strong, em, a{
 	height:180px;
 }
 .header .shouldWatch{
-	background:url(../images/baseImages/postIt.png) 0 0 no-repeat;
+	background:url(baseImages/postIt.png) 0 0 no-repeat;
 	height: 193px;
 	width: 210px;
 	padding: 20px 20px 40px 40px;
@@ -502,7 +502,7 @@ margin-left:120px;
 }
 
 #search_box input.text.ui-autocomplete-loading, #search_box input.text.ui-autocomplete-loading:focus {
-  background: url("/images/ui_loading.gif") no-repeat scroll 280px center white;
+  background: url("ui_loading.gif") no-repeat scroll 280px center white;
 }
 
 #search_handle {

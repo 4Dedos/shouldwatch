@@ -49,6 +49,15 @@ Shouldwatch::Application.configure do
   
   config.action_mailer.delivery_method = :sendmail
   
+  # Compress JavaScript and CSS  
+  config.assets.compress = true  
+               
+  # Don't fallback to assets pipeline  
+  config.assets.compile = false  
+                                
+  # Generate digests for assets URLs  
+  config.assets.digest = true  
+
   config.after_initialize do
     config.middleware.use ExceptionNotifier,
        :email_prefix => "[Shouldwatch Exception] ",
